@@ -7,7 +7,7 @@ uniform mat4 M;
 
 //Atrybuty
 layout (location=0) in vec4 vertex; //wspolrzedne wierzcholka w przestrzeni modelu
-layout (location=3) in vec4 color; //kolor wierzcho³ka
+layout (location=3) in vec4 color; //kolor wierzchoï¿½ka
 
 out vec4 i_c;
 

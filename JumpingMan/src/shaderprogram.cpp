@@ -74,6 +74,11 @@ GLuint ShaderProgram::loadShader(GLenum shaderType,const char* fileName) {
 	GLuint shader=glCreateShader(shaderType);//shaderType to GL_VERTEX_SHADER, GL_GEOMETRY_SHADER lub GL_FRAGMENT_SHADER
 	//Wczytaj plik ze źródłem shadera do tablicy znaków
 	const GLchar* shaderSource=readFile(fileName);
+	if (shaderSource == nullptr) {
+		std::cout << "Couldn't read shader file\n";
+		return 0;
+	}
+		
 	//Powiąż źródło z uchwytem shadera
 	glShaderSource(shader,1,&shaderSource,NULL);
 	//Skompiluj źródło

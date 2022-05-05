@@ -9,7 +9,7 @@ uniform mat4 M;
 
 //Atrybuty
 layout (location=0) in vec4 vertex; //wspolrzedne wierzcholka w przestrzeni modelu
-layout (location=2) in vec2 texCoord; //wspó³rzêdne teksturowania
+layout (location=2) in vec2 texCoord; //wspï¿½rzï¿½dne teksturowania
 
 
 //Zmienne interpolowane
