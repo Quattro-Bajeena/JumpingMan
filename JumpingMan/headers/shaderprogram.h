@@ -37,6 +37,7 @@ private:
 	char* readFile(const char* fileName); //metoda wczytująca plik tekstowy do tablicy znaków
 	GLuint loadShader(GLenum shaderType,const char* fileName); //Metoda wczytuje i kompiluje shader, a następnie zwraca jego uchwyt
 public:
+	ShaderProgram();
 	ShaderProgram(const char* vertexShaderFile,const char* geometryShaderFile,const char* fragmentShaderFile);
 	~ShaderProgram();
 	void use(); //Włącza wykorzystywanie programu cieniującego
@@ -51,6 +52,7 @@ extern ShaderProgram* spLambert;
 extern ShaderProgram* spTextured;
 extern ShaderProgram* spColored;
 extern ShaderProgram* spLambertTextured;
+extern ShaderProgram* spSimplest;
 
 void initShaders();
 void freeShaders();

@@ -19,7 +19,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Camera.cpp" />
     <ClCompile Include="GameEngine.cpp" />
+    <ClCompile Include="Object.cpp" />
     <ClCompile Include="src\cube.cpp" />
     <ClCompile Include="src\lodepng.cpp" />
     <ClCompile Include="src\main_file.cpp" />
@@ -45,6 +47,7 @@
     <None Include="shaders\v_textured.glsl" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Camera.h" />
     <ClInclude Include="GameEngine.h" />
     <ClInclude Include="headers\allmodels.h" />
     <ClInclude Include="headers\constants.h" />
@@ -57,6 +60,7 @@
     <ClInclude Include="headers\sphere.h" />
     <ClInclude Include="headers\teapot.h" />
     <ClInclude Include="headers\torus.h" />
+    <ClInclude Include="Object.h" />
     <ClInclude Include="RenderModel.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
@@ -130,6 +134,7 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(SolutionDir)libs\glew\include;$(SolutionDir)libs\glfw\include;$(SolutionDir)\libs;$(ProjectDir);$(ProjectDir)headers;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -147,6 +152,7 @@
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(SolutionDir)libs\glew\include;$(SolutionDir)libs\glfw\include;$(SolutionDir)\libs;$(ProjectDir)headers;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

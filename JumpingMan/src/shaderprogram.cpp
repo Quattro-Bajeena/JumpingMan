@@ -25,6 +25,7 @@ ShaderProgram *spConstant;
 ShaderProgram* spColored;
 ShaderProgram* spTextured;
 ShaderProgram* spLambertTextured;
+ShaderProgram* spSimplest;
 
 
 void initShaders() {
@@ -33,6 +34,7 @@ void initShaders() {
 	spTextured = new ShaderProgram("shaders/v_textured.glsl", NULL, "shaders/f_textured.glsl");
 	spColored = new ShaderProgram("shaders/v_colored.glsl", NULL, "shaders/f_colored.glsl");
 	spLambertTextured = new ShaderProgram("shaders/v_lamberttextured.glsl", NULL, "shaders/f_lamberttextured.glsl");
+	spSimplest = new ShaderProgram("shaders/v_simplest.glsl", NULL, "shaders/f_simplest.glsl");
 }
 
 void freeShaders() {
@@ -102,6 +104,10 @@ GLuint ShaderProgram::loadShader(GLenum shaderType,const char* fileName) {
 
 	//Zwróć uchwyt wygenerowanego shadera
 	return shader;
+}
+
+ShaderProgram::ShaderProgram()
+{
 }
 
 ShaderProgram::ShaderProgram(const char* vertexShaderFile,const char* geometryShaderFile,const char* fragmentShaderFile) {
