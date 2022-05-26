@@ -1,9 +1,10 @@
 #include "pch.h"
 #include "Object.h"
 
-Object::Object(RenderModel* model)
-	:model(model)
+Object::Object(RenderModel* model, Collider collider)
+	:model(model), collider(collider), name(model->name)
 {
+
 }
 
 void Object::Render(glm::mat4 V, glm::mat4 P)

@@ -1,19 +1,16 @@
 #pragma once
-#include <GL/glew.h>
-#include <GLFW/glfw3.h>
-#include <glm/glm.hpp>
-#include <glm/gtc/type_ptr.hpp>
-#include <glm/gtc/matrix_transform.hpp>
-#include <stdlib.h>
-#include <stdio.h>
 
 #include "RenderModel.h"
+#include "Collider.h"
 
 class Object
 {
 	RenderModel* model;
+	
 
 public:
+	Collider collider;
+
 	std::string name;
 
 	glm::vec3 position;
@@ -21,7 +18,7 @@ public:
 
 	
 
-	Object(RenderModel* model);
+	Object(RenderModel* model, Collider collider);
 	void Render(glm::mat4 V, glm::mat4 P);
 
 	void SetRotation(float pitch, float yaw, float roll);

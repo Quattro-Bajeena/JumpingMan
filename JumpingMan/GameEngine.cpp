@@ -1,6 +1,6 @@
 #include "pch.h"
 #include "GameEngine.h"
-#include "OBJ_Loader.h"
+
 
 
 
@@ -44,13 +44,13 @@ void GameEngine::KeyInputCallback(int key, int scancode, int action, int mod)
 
 void GameEngine::KeyInput()
 {
-	if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS) camMoveForward = 1;
-	else if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS) camMoveForward = -1;
-	else camMoveForward = 0;
+	if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS) moveForward = 1;
+	else if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS) moveForward = -1;
+	else moveForward = 0;
 
-	if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS) camMoveSide = 1;
-	else if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS) camMoveSide = -1;
-	else camMoveSide = 0;
+	if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS) moveSide = 1;
+	else if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS) moveSide = -1;
+	else moveSide = 0;
 }
 
 void GameEngine::MouseInput()
@@ -146,7 +146,9 @@ void GameEngine::LoadModels()
 			newModel.SetShader(shaders.at("textured"));
 			models[newModel.name] = newModel;
 
-			Object new_obj = Object(&models.at(newModel.name));
+			Collider collider(mesh);
+
+			Object new_obj = Object(&models.at(newModel.name), collider);
 			//new_obj.position = positions.at(newModel.name);
 			objects.emplace_back(new_obj);
 
@@ -171,9 +173,21 @@ void GameEngine::Update(float dt) {
 	for (auto &object : objects) {
 		object.SetRotation(angle_x, angle_y, 0);
 	}
+	
+	player.Move(moveForward, moveSide, dt);
+	player.Rotate(-mouseDelta.y, mouseDelta.x, deltaTime);
+	camera.position = player.position;
+	camera.yaw = player.yaw;
+	camera.pitch = player.pitch;
 
-	cam.Move(camMoveForward, camMoveSide, dt);
-	cam.RotateMouse(-mouseDelta.y, mouseDelta.x, deltaTime);
+	// COllision detection
+	for (auto& object : objects) {
+		if (object.collider.PointInside(player.position + player.direction)) {
+			player.position = player.prevPosition;
+			player.speed = 0;
+			break;
+		}
+	}
 
 }
 
@@ -183,7 +197,7 @@ void GameEngine::Render() {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 
-	glm::mat4 V = cam.GetViewMatrix();
+	glm::mat4 V = camera.GetViewMatrix();
 	glm::mat4 P = glm::perspective(50.0f * PI / 180.0f, aspectRatio, 0.01f, 1000.0f); 
 
 
@@ -237,7 +251,8 @@ GameEngine::GameEngine() {
 	glfwSetTime(0); 
 	lastTime = 0;
 
-	cam.SetPosition(glm::vec3(0, 0, 0));
+	//player = new Player();
+	player.position = glm::vec3(0, 0, 0);
 	
 }
 

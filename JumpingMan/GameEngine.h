@@ -8,6 +8,7 @@
 #include "RenderModel.h"
 #include "Camera.h"
 #include "Object.h"
+#include "Player.h"
 
 
 class GameEngine
@@ -23,8 +24,8 @@ private:
 	glm::vec2 mouseDelta;
 	glm::vec2 mousePos;
 
-	int camMoveForward = 0;
-	int camMoveSide = 0;
+	int moveForward = 0;
+	int moveSide = 0;
 
 	std::map<std::string, GLuint> textures;
 	std::map<std::string, RenderModel> models;
@@ -32,7 +33,8 @@ private:
 
 	std::vector<Object> objects;
 
-	Camera cam;
+	Player player;
+	Camera camera;
 
 	
 	float lastTime;
