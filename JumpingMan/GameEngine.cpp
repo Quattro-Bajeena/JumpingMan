@@ -1,3 +1,4 @@
+#include "pch.h"
 #include "GameEngine.h"
 #include "OBJ_Loader.h"
 
@@ -99,33 +100,6 @@ void GameEngine::InitOpenGLProgram() {
 	glfwSetKeyCallback(window, KeyCallBack);
 	glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 
-
-	models["Cube"].SetTexture(textures["CubeTexture"]);
-	models["BigL"].SetTexture(textures["Arrows"]);
-	models["Floor"].SetTexture(textures["CheckeredTexture"]);
-	models["Wall"].SetTexture(textures["CheckeredTexture"]);
-
-	models["Cube"].SetShader(shaders["textured"]);
-	models["BigL"].SetShader(shaders["textured"]);
-	models["Floor"].SetShader(shaders["textured"]);
-	models["Wall"].SetShader(shaders["textured"]);
-
-
-	auto cube = Object(&models["Cube"]);
-	auto bigL = Object(&models["BigL"]);
-	auto wall = Object(&models["Wall"]);
-	auto floor = Object(&models["Floor"]);
-
-	cube.position.x = 5;
-	objects.emplace_back(cube);
-
-	cube.position.z = -10;
-	objects.emplace_back(cube);
-	
-	objects.emplace_back(floor);
-	
-	bigL.position.z = 5;
-	objects.emplace_back(bigL);
 }
 
 
@@ -150,21 +124,36 @@ void GameEngine::LoadModels()
 {
 	objl::Loader loader;
 
-	namespace fs = std::filesystem;
-	const fs::path pathToShow("models");
-	for (const auto& entry : fs::directory_iterator(pathToShow)) {
-		if (entry.is_regular_file() && entry.path().extension().string() == ".obj") {
-			std::cout << "file: " << entry.path().string() << '\n';
-			bool loadout = loader.LoadFile(entry.path().string());
-			if (loadout) {
-				for (auto mesh : loader.LoadedMeshes) {
-					RenderModel newModel(mesh);
-					models[newModel.name] = newModel;
-					std::cout << "Loaded model: " << newModel.name << "\n";
-				}
-			}	
+	std::map<std::string, glm::vec3> positions;
+	std::ifstream scene_data("models/scene_data.txt", std::ios::in);
+	std::string object_name;
+	float x, y, z;
+	while (scene_data >> object_name >> x >> y >> z) {
+		positions[object_name] = glm::vec3(x, y, z);
+		//std::cout << object_name << " " << x << " " << y << " " << z << "\n";
+	}
+
+
+	bool loadout = loader.LoadFile("models/scene.obj");
+	if (loadout) {
+		for (auto mesh : loader.LoadedMeshes) {
+			std::string tex_path = mesh.MeshMaterial.map_Kd;
+			std::string filename = tex_path.substr(tex_path.find_last_of("/\\") + 1);
+			std::string texture_name = filename.substr(0, filename.find_last_of("."));
+
+			RenderModel newModel(mesh);
+			newModel.SetTexture(textures.at(texture_name));
+			newModel.SetShader(shaders.at("textured"));
+			models[newModel.name] = newModel;
+
+			Object new_obj = Object(&models.at(newModel.name));
+			//new_obj.position = positions.at(newModel.name);
+			objects.emplace_back(new_obj);
+
+			std::cout << "Loaded model: " << newModel.name << "\n";
+			
 		}
-	}	
+	}
 }
 
 void GameEngine::LoadShaders()
@@ -195,21 +184,21 @@ void GameEngine::Render() {
 
 
 	glm::mat4 V = cam.GetViewMatrix();
-	glm::mat4 P = glm::perspective(50.0f * PI / 180.0f, aspectRatio, 0.01f, 50.0f); //Wylicz macierz rzutowania
+	glm::mat4 P = glm::perspective(50.0f * PI / 180.0f, aspectRatio, 0.01f, 1000.0f); 
 
 
 	for (auto& object : objects) {
 		object.Render(V, P);
 	}
 
-	glfwSwapBuffers(window); //Przerzuć tylny bufor na przedni
+	glfwSwapBuffers(window); 
 }
 
 GameEngine::GameEngine() {
 
-	glfwSetErrorCallback(ErrorCallback);//Zarejestruj procedurę obsługi błędów
+	glfwSetErrorCallback(ErrorCallback);
 
-	if (!glfwInit()) { //Zainicjuj bibliotekę GLFW
+	if (!glfwInit()) { 
 		fprintf(stderr, "Nie można zainicjować GLFW.\n");
 		exit(EXIT_FAILURE);
 	}
@@ -217,12 +206,12 @@ GameEngine::GameEngine() {
 	int width = 1000;
 	int height = 1000;
 	windowSize = glm::vec2(width, height);
-	window = glfwCreateWindow(width, height, "OpenGL", NULL, NULL);  //Utwórz okno 500x500 o tytule "OpenGL" i kontekst OpenGL.
+	window = glfwCreateWindow(width, height, "OpenGL", NULL, NULL);  
 	aspectRatio = (float)width / height;
 	mousePos = glm::vec2(0, 0);
 	mouseDelta = glm::vec2(0, 0);
 
-	if (!window) //Jeżeli okna nie udało się utworzyć, to zamknij program
+	if (!window) 
 	{
 		fprintf(stderr, "Nie można utworzyć okna.\n");
 		glfwTerminate();
@@ -230,25 +219,25 @@ GameEngine::GameEngine() {
 	}
 
 	glfwSetWindowUserPointer(window, this);
-	glfwMakeContextCurrent(window); //Od tego momentu kontekst okna staje się aktywny i polecenia OpenGL będą dotyczyć właśnie jego.
-	glfwSwapInterval(1); //Czekaj na 1 powrót plamki przed pokazaniem ukrytego bufora
+	glfwMakeContextCurrent(window); 
+	glfwSwapInterval(1); 
 
-	if (glewInit() != GLEW_OK) { //Zainicjuj bibliotekę GLEW
+	if (glewInit() != GLEW_OK) { 
 		fprintf(stderr, "Nie można zainicjować GLEW.\n");
 		exit(EXIT_FAILURE);
 	}
 
 
 	LoadTextures();
-	LoadModels();
 	LoadShaders();
-	InitOpenGLProgram(); //Operacje inicjujące
+	LoadModels();
+	InitOpenGLProgram(); 
 
 	
-	glfwSetTime(0); //Wyzeruj licznik czasu
+	glfwSetTime(0); 
 	lastTime = 0;
 
-	cam.SetPosition(glm::vec3(0, 0, -5));
+	cam.SetPosition(glm::vec3(0, 0, 0));
 	
 }
 

@@ -1,3 +1,4 @@
+#include "pch.h"
 #include "RenderModel.h"
 #include "myCube.h"
 #include "OBJ_Loader.h"

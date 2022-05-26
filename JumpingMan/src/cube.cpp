@@ -16,7 +16,7 @@ Powszechnej Licencji Publicznej GNU(GNU General Public License);
 jeśli nie - napisz do Free Software Foundation, Inc., 59 Temple
 Place, Fifth Floor, Boston, MA  02110 - 1301  USA
 */
-
+#include "pch.h"
 #include "cube.h"
 
 namespace Models {

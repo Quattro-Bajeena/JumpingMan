@@ -1,3 +1,4 @@
+#include "pch.h"
 #include "Camera.h"
 
 Camera::Camera()
@@ -46,6 +47,7 @@ void Camera::Move(glm::vec3 dir, float dt)
 
 void Camera::Move(int forward, int side, float dt)
 {
+
 	position += forward * speed * ComputeDir(0, yaw) * dt;
 	position += side * speed * ComputeDir(0, yaw + glm::pi<float>() / 2) * dt;
 }
