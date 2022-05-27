@@ -11,6 +11,10 @@ Player::Player()
 
 	acceleration = 20;
 	maxSpeed = 10;
+
+	velocityY = 0;
+	gravity = 0.01;
+	floorLevel = 0;
 }
 
 glm::vec3 Player::ComputeDir(float angleX, float angleY) {
@@ -49,8 +53,25 @@ void Player::Move(int forward, int side, float dt)
 
 	position += dir * speed * dt;
 
-}
+	//gravity
+	position.y += velocityY;
+	velocityY -= gravity;
+	glm::vec3 pos = glm::vec3(position.x, position.y, position.z);
 
+	if (position.y < floorLevel) {
+		pos = glm::vec3(position.x, floorLevel, position.z);
+		velocityY = 0;
+	}
+
+	//reset pos if fall to low
+	//if (position.y < -10) pos = glm::vec3(position.x, 5, position.z);
+
+	position = pos;
+
+}
+void Player::Jump() {
+	velocityY = 0.25;
+}
 void Player::Rotate(float pitchChange, float yawChange, float dt)
 {
 

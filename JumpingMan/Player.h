@@ -22,9 +22,15 @@ public:
 	float yaw;
 	float pitch;
 
+	//jumping variables
+	float velocityY;
+	float gravity;
+	float floorLevel;
+
 	Player();
 
 	void Move(int forward, int side, float dt);
+	void Jump();
 	void Rotate(float pitchChange, float yawChange, float dt);
 };
 

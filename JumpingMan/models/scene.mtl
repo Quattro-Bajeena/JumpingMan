@@ -2,7 +2,7 @@
 # Material Count: 3
 
 newmtl Default_OBJ
-Ns 225.000000
+Ns 250.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
 Ks 0.500000 0.500000 0.500000
@@ -10,10 +10,10 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 2
-map_Kd F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\Arrows.png
+map_Kd C:\\Users\\Kubi\\Desktop\\Pojekt grafika\\JumpingMan\\textures\\Arrows.png
 
 newmtl Floor
-Ns 225.000000
+Ns 250.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
 Ks 0.500000 0.500000 0.500000
@@ -21,10 +21,10 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 2
-map_Kd F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\CheckeredTexture.png
+map_Kd C:\\Users\\Kubi\\Desktop\\Pojekt grafika\\JumpingMan\\textures\\CheckeredTexture.png
 
 newmtl building
-Ns 225.000000
+Ns 250.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
 Ks 0.500000 0.500000 0.500000
@@ -32,4 +32,4 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 2
-map_Kd F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\modern-building-facade-texture-free-thumb35.png
+map_Kd C:\\Users\\Kubi\\Desktop\\Pojekt grafika\\JumpingMan\\textures\\modern-building-facade-texture-free-thumb35.png

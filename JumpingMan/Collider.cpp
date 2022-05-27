@@ -25,3 +25,13 @@ bool Collider::PointInside(glm::vec3 point)
 		(point.y >= minY && point.y <= maxY) &&
 		(point.z >= minZ && point.z <= maxZ);
 }
+
+float Collider::GetFloorLevel()
+{
+	return maxY;
+}
+
+bool Collider::PointInSquare(glm::vec3 point)
+{
+	return (point.x >= minX && point.x <= maxX) && (point.z >= minZ && point.z <= maxZ);
+}

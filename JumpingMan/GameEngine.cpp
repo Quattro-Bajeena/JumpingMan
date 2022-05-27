@@ -34,6 +34,8 @@ void GameEngine::KeyInputCallback(int key, int scancode, int action, int mod)
 		if (key == GLFW_KEY_RIGHT) rotateObjectsY = -PI;
 		if (key == GLFW_KEY_UP) rotateObjectsX = -PI;
 		if (key == GLFW_KEY_DOWN) rotateObjectsX = PI;
+
+		if (key == GLFW_KEY_SPACE) { std::cout << "spacja" << std::endl; player.Jump(); }
 	}
 	if (action == GLFW_RELEASE) {
 
@@ -61,7 +63,7 @@ void GameEngine::MouseInput()
 	mouseDelta = (mousePos - newMousePos) / windowSize;
 	mousePos = newMousePos;
 
-	
+
 }
 
 
@@ -96,7 +98,7 @@ GLuint GameEngine::ReadTexture(std::string filename) {
 void GameEngine::InitOpenGLProgram() {
 
 	glClearColor(0, 0, 0, 1);
-	glEnable(GL_DEPTH_TEST); 
+	glEnable(GL_DEPTH_TEST);
 	glfwSetKeyCallback(window, KeyCallBack);
 	glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 
@@ -153,7 +155,7 @@ void GameEngine::LoadModels()
 			objects.emplace_back(new_obj);
 
 			std::cout << "Loaded model: " << newModel.name << "\n";
-			
+
 		}
 	}
 }
@@ -170,13 +172,13 @@ void GameEngine::Update(float dt) {
 	angle_x += rotateObjectsX * dt;
 	angle_y += rotateObjectsY * dt;
 
-	for (auto &object : objects) {
+	for (auto& object : objects) {
 		object.SetRotation(angle_x, angle_y, 0);
 	}
-	
+
 	player.Move(moveForward, moveSide, dt);
 	player.Rotate(-mouseDelta.y, mouseDelta.x, deltaTime);
-	camera.position = player.position;
+	camera.position = player.position + glm::vec3(0, 1, 0);
 	camera.yaw = player.yaw;
 	camera.pitch = player.pitch;
 
@@ -185,7 +187,22 @@ void GameEngine::Update(float dt) {
 		if (object.collider.PointInside(player.position + player.direction)) {
 			player.position = player.prevPosition;
 			player.speed = 0;
+
 			break;
+		}
+	}
+
+	for (auto& object : objects) {
+		if (object.collider.PointInSquare(player.position)) {
+
+			std::cout << player.floorLevel << std::endl;
+			//if (object.collider.maxY > player.floorLevel)
+			//{
+			player.floorLevel = object.collider.GetFloorLevel();
+			//}
+
+
+			//break;
 		}
 	}
 
@@ -198,21 +215,21 @@ void GameEngine::Render() {
 
 
 	glm::mat4 V = camera.GetViewMatrix();
-	glm::mat4 P = glm::perspective(50.0f * PI / 180.0f, aspectRatio, 0.01f, 1000.0f); 
+	glm::mat4 P = glm::perspective(50.0f * PI / 180.0f, aspectRatio, 0.01f, 1000.0f);
 
 
 	for (auto& object : objects) {
 		object.Render(V, P);
 	}
 
-	glfwSwapBuffers(window); 
+	glfwSwapBuffers(window);
 }
 
 GameEngine::GameEngine() {
 
 	glfwSetErrorCallback(ErrorCallback);
 
-	if (!glfwInit()) { 
+	if (!glfwInit()) {
 		fprintf(stderr, "Nie można zainicjować GLFW.\n");
 		exit(EXIT_FAILURE);
 	}
@@ -220,12 +237,12 @@ GameEngine::GameEngine() {
 	int width = 1000;
 	int height = 1000;
 	windowSize = glm::vec2(width, height);
-	window = glfwCreateWindow(width, height, "OpenGL", NULL, NULL);  
+	window = glfwCreateWindow(width, height, "OpenGL", NULL, NULL);
 	aspectRatio = (float)width / height;
 	mousePos = glm::vec2(0, 0);
 	mouseDelta = glm::vec2(0, 0);
 
-	if (!window) 
+	if (!window)
 	{
 		fprintf(stderr, "Nie można utworzyć okna.\n");
 		glfwTerminate();
@@ -233,10 +250,10 @@ GameEngine::GameEngine() {
 	}
 
 	glfwSetWindowUserPointer(window, this);
-	glfwMakeContextCurrent(window); 
-	glfwSwapInterval(1); 
+	glfwMakeContextCurrent(window);
+	glfwSwapInterval(1);
 
-	if (glewInit() != GLEW_OK) { 
+	if (glewInit() != GLEW_OK) {
 		fprintf(stderr, "Nie można zainicjować GLEW.\n");
 		exit(EXIT_FAILURE);
 	}
@@ -245,15 +262,15 @@ GameEngine::GameEngine() {
 	LoadTextures();
 	LoadShaders();
 	LoadModels();
-	InitOpenGLProgram(); 
+	InitOpenGLProgram();
 
-	
-	glfwSetTime(0); 
+
+	glfwSetTime(0);
 	lastTime = 0;
 
 	//player = new Player();
 	player.position = glm::vec3(0, 0, 0);
-	
+
 }
 
 GameEngine::~GameEngine()
@@ -274,7 +291,7 @@ void GameEngine::Run()
 		lastTime = nowTime;
 		Update(deltaTime);
 		Render();
-		glfwPollEvents(); 
+		glfwPollEvents();
 
 	}
 }
