@@ -25,10 +25,5 @@ glm::mat4 Camera::GetViewMatrix()
 		position + ComputeDir(pitch, yaw), 
 		glm::vec3(0.0f, 1.0f, 0.0f)); //Wylicz macierz widoku
 
-	V = glm::lookAt(
-		position,
-		position + ComputeDir(pitch, yaw),
-		glm::vec3(0.0f, 1.0f, 0.0f)); //Wylicz macierz widoku
-
 	return V;
 }

@@ -41,12 +41,14 @@
   <ItemGroup>
     <None Include="shaders\f_colored.glsl" />
     <None Include="shaders\f_constant.glsl" />
+    <None Include="shaders\f_custom.glsl" />
     <None Include="shaders\f_lambert.glsl" />
     <None Include="shaders\f_lamberttextured.glsl" />
     <None Include="shaders\f_simplest.glsl" />
     <None Include="shaders\f_textured.glsl" />
     <None Include="shaders\v_colored.glsl" />
     <None Include="shaders\v_constant.glsl" />
+    <None Include="shaders\v_custom.glsl" />
     <None Include="shaders\v_lambert.glsl" />
     <None Include="shaders\v_lamberttextured.glsl" />
     <None Include="shaders\v_simplest.glsl" />

@@ -7,7 +7,7 @@ Object::Object(RenderModel* model, Collider collider)
 
 }
 
-void Object::Render(glm::mat4 V, glm::mat4 P)
+void Object::Render(glm::mat4 V, glm::mat4 P, glm::vec3 cameraPos)
 {
 	glm::mat4 M = glm::mat4(1.0f);
 	M = glm::translate(M, position);
@@ -15,7 +15,7 @@ void Object::Render(glm::mat4 V, glm::mat4 P)
 	M = M * rotM;
 	//M = glm::scale(M, glm::vec3(2, 2, 2));
 
-	model->Render(V, P, M);
+	model->Render(V, P, M, cameraPos);
 }
 
 void Object::SetRotation(float pitch, float yaw, float roll)

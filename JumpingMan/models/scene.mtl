@@ -2,7 +2,7 @@
 # Material Count: 3
 
 newmtl Default_OBJ
-Ns 250.000000
+Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
 Ks 0.500000 0.500000 0.500000
@@ -10,10 +10,10 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 2
-map_Kd C:\\Users\\Kubi\\Desktop\\Pojekt grafika\\JumpingMan\\textures\\Arrows.png
+map_Kd F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\Arrows.png
 
 newmtl Floor
-Ns 250.000000
+Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
 Ks 0.500000 0.500000 0.500000
@@ -21,15 +21,18 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 2
-map_Kd C:\\Users\\Kubi\\Desktop\\Pojekt grafika\\JumpingMan\\textures\\CheckeredTexture.png
+map_Kd F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\CheckeredTexture.png
 
 newmtl building
-Ns 250.000000
+Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
-Ks 0.500000 0.500000 0.500000
+Ks 0.581967 0.581967 0.581967
 Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 2
-map_Kd C:\\Users\\Kubi\\Desktop\\Pojekt grafika\\JumpingMan\\textures\\modern-building-facade-texture-free-thumb35.png
+map_Bump F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\normal\\1K-facade_2_normal.png
+map_Kd F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\color\\1K-facade_2_basecolor.png
+map_Ns F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\roughness\\1K-facade_2_roughness.png
+refl F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\metallic\\1K-facade_2_metallic.png

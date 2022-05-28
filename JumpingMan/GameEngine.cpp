@@ -35,8 +35,10 @@ void GameEngine::KeyInputCallback(int key, int scancode, int action, int mod)
 		if (key == GLFW_KEY_UP) rotateObjectsX = -PI;
 		if (key == GLFW_KEY_DOWN) rotateObjectsX = PI;
 
-		if (key == GLFW_KEY_SPACE) { std::cout << "spacja" << std::endl; player.Jump(); }
-	}
+		if (key == GLFW_KEY_SPACE) { 
+			//std::cout << "spacja" << std::endl; 
+			player.Jump(); }
+		}
 	if (action == GLFW_RELEASE) {
 
 		if (key == GLFW_KEY_LEFT || key == GLFW_KEY_RIGHT) rotateObjectsY = 0;
@@ -113,13 +115,37 @@ void GameEngine::FreeOpenGLProgram() {
 void GameEngine::LoadTextures()
 {
 	namespace fs = std::filesystem;
-	const fs::path pathToShow("textures");
-	for (const auto& entry : fs::directory_iterator(pathToShow)) {
+	for (const auto& entry : fs::directory_iterator(fs::path("textures/color"))) {
 		if (entry.is_regular_file()) {
 			textures[entry.path().filename().stem().string()] = ReadTexture(entry.path().string());
-			std::cout << "Loaded texture: " << entry.path().string() << '\n';
+			//std::cout << "Loaded texture: " << entry.path().string() << '\n';
 		}
 	}
+
+	for (const auto& entry : fs::directory_iterator(fs::path("textures/normal"))) {
+		if (entry.is_regular_file()) {
+			normalMaps[entry.path().filename().stem().string()] = ReadTexture(entry.path().string());
+			//std::cout << "Loaded texture: " << entry.path().string() << '\n';
+		}
+	}
+
+	for (const auto& entry : fs::directory_iterator(fs::path("textures/metallic"))) {
+		if (entry.is_regular_file()) {
+			metallicMaps[entry.path().filename().stem().string()] = ReadTexture(entry.path().string());
+			//std::cout << "Loaded texture: " << entry.path().string() << '\n';
+		}
+	}
+
+	for (const auto& entry : fs::directory_iterator(fs::path("textures/roughness"))) {
+		if (entry.is_regular_file()) {
+			roughnessMaps[entry.path().filename().stem().string()] = ReadTexture(entry.path().string());
+			//std::cout << "Loaded texture: " << entry.path().string() << '\n';
+		}
+	}
+
+
+
+	
 }
 
 void GameEngine::LoadModels()
@@ -139,13 +165,34 @@ void GameEngine::LoadModels()
 	bool loadout = loader.LoadFile("models/scene.obj");
 	if (loadout) {
 		for (auto mesh : loader.LoadedMeshes) {
-			std::string tex_path = mesh.MeshMaterial.map_Kd;
-			std::string filename = tex_path.substr(tex_path.find_last_of("/\\") + 1);
-			std::string texture_name = filename.substr(0, filename.find_last_of("."));
+
+			std::string color_texture = std::filesystem::path(mesh.MeshMaterial.map_Kd).stem().string();
+			std::string normal_map = std::filesystem::path(mesh.MeshMaterial.map_bump).stem().string();
+			std::string metallic_map = std::filesystem::path(mesh.MeshMaterial.refl).stem().string();
+			std::string rougness_map = std::filesystem::path(mesh.MeshMaterial.map_Ns).stem().string();
 
 			RenderModel newModel(mesh);
-			newModel.SetTexture(textures.at(texture_name));
-			newModel.SetShader(shaders.at("textured"));
+			
+			if (textures.count(color_texture) == 1) {
+				newModel.colorTexture = textures.at(color_texture);
+			}
+			if (normalMaps.count(normal_map) == 1) {
+				newModel.normalMap = normalMaps.at(normal_map);
+			}
+			if (metallicMaps.count(metallic_map) == 1) {
+				newModel.metallicMap = metallicMaps.at(metallic_map);
+			}
+			if (roughnessMaps.count(rougness_map) == 1) {
+				newModel.roughnessMap = roughnessMaps.at(rougness_map);
+			}
+			
+			if (mesh.MeshMaterial.name == "building") {
+				newModel.shader = shaders.at("custom");
+			}
+			else {
+				newModel.shader = shaders.at("textured");
+			}
+			
 			models[newModel.name] = newModel;
 
 			Collider collider(mesh);
@@ -162,6 +209,7 @@ void GameEngine::LoadModels()
 
 void GameEngine::LoadShaders()
 {
+	shaders["custom"] = new ShaderProgram("shaders/v_custom.glsl", nullptr, "shaders/f_custom.glsl");
 	shaders["textured"] = new ShaderProgram("shaders/v_textured.glsl", nullptr, "shaders/f_textured.glsl");
 }
 
@@ -195,7 +243,7 @@ void GameEngine::Update(float dt) {
 	for (auto& object : objects) {
 		if (object.collider.PointInSquare(player.position)) {
 
-			std::cout << player.floorLevel << std::endl;
+			//std::cout << player.floorLevel << std::endl;
 			//if (object.collider.maxY > player.floorLevel)
 			//{
 			player.floorLevel = object.collider.GetFloorLevel();
@@ -219,7 +267,7 @@ void GameEngine::Render() {
 
 
 	for (auto& object : objects) {
-		object.Render(V, P);
+		object.Render(V, P, camera.position);
 	}
 
 	glfwSwapBuffers(window);

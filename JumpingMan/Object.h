@@ -19,7 +19,7 @@ public:
 	
 
 	Object(RenderModel* model, Collider collider);
-	void Render(glm::mat4 V, glm::mat4 P);
+	void Render(glm::mat4 V, glm::mat4 P, glm::vec3 cameraPos);
 
 	void SetRotation(float pitch, float yaw, float roll);
 

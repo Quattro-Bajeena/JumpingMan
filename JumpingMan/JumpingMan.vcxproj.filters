@@ -98,6 +98,12 @@
     <None Include="shaders\v_simplest.glsl">
       <Filter>Resource Files</Filter>
     </None>
+    <None Include="shaders\v_custom.glsl">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="shaders\f_custom.glsl">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="headers\allmodels.h">

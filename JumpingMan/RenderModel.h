@@ -1,11 +1,6 @@
 #pragma once
 
 
-#include "shaderprogram.h"
-
-namespace objl {
-	class Mesh;
-}
 
 class RenderModel
 {
@@ -19,16 +14,22 @@ private:
 	std::vector<float> texCoords;
 	std::vector<float> colors;
 
-	GLuint texture;
-	ShaderProgram* shader;
+	std::vector<float> tangents;
+	std::vector<float> bitangents;
 	
 
 public:
+
+	GLuint colorTexture;
+	GLuint normalMap;
+	GLuint metallicMap;
+	GLuint roughnessMap;
+	ShaderProgram* shader;
+
 	std::string name;
-	void SetTexture(GLuint texture);
-	void SetShader(ShaderProgram* shader);
+
 
 	RenderModel();
 	RenderModel(objl::Mesh mesh);
-	void Render(glm::mat4 V, glm::mat4 P, glm::mat4 M);
+	void Render(glm::mat4 V, glm::mat4 P, glm::mat4 M, glm::vec3 cameraPos);
 };
