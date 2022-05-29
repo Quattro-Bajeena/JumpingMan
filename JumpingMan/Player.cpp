@@ -15,6 +15,7 @@ Player::Player()
 	velocityY = 0;
 	gravity = 0.01;
 	floorLevel = 0;
+	onGround = false;
 }
 
 glm::vec3 Player::ComputeDir(float angleX, float angleY) {
@@ -31,7 +32,6 @@ glm::vec3 Player::ComputeDir(float angleX, float angleY) {
 
 void Player::Move(int forward, int side, float dt)
 {
-
 	if (forward != 0 || side != 0) {
 		speed += acceleration * dt;
 	}
@@ -40,9 +40,6 @@ void Player::Move(int forward, int side, float dt)
 	}
 	speed = std::clamp(speed, 0.f, maxSpeed);
 
-
-	//std::cout << speed << "\n";
-
 	glm::vec3 dir = glm::vec3(0.f);
 	if (forward != 0 || side != 0) {
 		dir = (float)forward * ComputeDir(0, yaw) + (float)side * ComputeDir(0, yaw + glm::pi<float>() / 2);
@@ -50,27 +47,48 @@ void Player::Move(int forward, int side, float dt)
 
 	direction = dir;
 	prevPosition = position;
-
 	position += dir * speed * dt;
 
-	//gravity
-	position.y += velocityY;
-	velocityY -= gravity;
-	glm::vec3 pos = glm::vec3(position.x, position.y, position.z);
 
-	if (position.y < floorLevel) {
-		pos = glm::vec3(position.x, floorLevel, position.z);
+
+	//gravity
+	if (!onGround)
+	{
+		position.y += velocityY;
+		velocityY -= gravity;
+	}
+	else
+	{
 		velocityY = 0;
+		gravity = 0;
+	}
+
+
+	if (position.y <= floorLevel) {
+		position.y = floorLevel;
+		//std::cout << "spadniecie na podlage" << "\n";
+		onGround = true;
+	}
+	else if (position.y > floorLevel + 0.18) {
+		onGround = false;
+		gravity = 0.01;
 	}
 
 	//reset pos if fall to low
 	//if (position.y < -10) pos = glm::vec3(position.x, 5, position.z);
 
-	position = pos;
 
 }
 void Player::Jump() {
-	velocityY = 0.25;
+	if (onGround)
+	{
+		velocityY = 0.25;
+		gravity = 0.01;
+		onGround = false;
+	}
+}
+void Player::GoToStartingPos() {
+	position = glm::vec3(0, 0, 0);
 }
 void Player::Rotate(float pitchChange, float yawChange, float dt)
 {

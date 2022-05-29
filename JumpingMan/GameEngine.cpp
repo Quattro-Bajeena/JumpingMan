@@ -39,6 +39,8 @@ void GameEngine::KeyInputCallback(int key, int scancode, int action, int mod)
 			//std::cout << "spacja" << std::endl; 
 			player.Jump(); }
 		}
+	if (key == GLFW_KEY_R) player.GoToStartingPos();
+
 	if (action == GLFW_RELEASE) {
 
 		if (key == GLFW_KEY_LEFT || key == GLFW_KEY_RIGHT) rotateObjectsY = 0;
@@ -240,19 +242,22 @@ void GameEngine::Update(float dt) {
 		}
 	}
 
+	float maxFloorLevel = -1000;
 	for (auto& object : objects) {
 		if (object.collider.PointInSquare(player.position)) {
 
-			//std::cout << player.floorLevel << std::endl;
-			//if (object.collider.maxY > player.floorLevel)
-			//{
-			player.floorLevel = object.collider.GetFloorLevel();
-			//}
+			float currentObjectFloorLevel = object.collider.GetFloorLevel();
 
+			if (currentObjectFloorLevel > maxFloorLevel)
+			{
+				maxFloorLevel = currentObjectFloorLevel;
+			}
 
-			//break;
 		}
+
 	}
+	player.floorLevel = maxFloorLevel;
+	//std::cout << "FL: " << player.floorLevel << " POSY: " << player.position.y <<std::endl;
 
 }
 
@@ -317,7 +322,7 @@ GameEngine::GameEngine() {
 	lastTime = 0;
 
 	//player = new Player();
-	player.position = glm::vec3(0, 0, 0);
+	//player.position = glm::vec3(0, 0, 0);
 
 }
 

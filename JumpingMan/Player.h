@@ -27,10 +27,13 @@ public:
 	float gravity;
 	float floorLevel;
 
+	bool onGround;
+
 	Player();
 
 	void Move(int forward, int side, float dt);
 	void Jump();
+	void GoToStartingPos();
 	void Rotate(float pitchChange, float yawChange, float dt);
 };
 
