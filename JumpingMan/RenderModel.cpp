@@ -8,7 +8,7 @@
 
 RenderModel::RenderModel(objl::Mesh mesh)
 {
-	diffuseMap = normalMap = metallicMap = roughnessMap = -1;
+	diffuseMap = normalMap = metallicMap = roughnessMap = heightMap = -1;
 	name = mesh.MeshName;
 	vertexCount = mesh.Vertices.size();
 	for (int j = 0; j < mesh.Vertices.size(); j++)
@@ -65,7 +65,8 @@ RenderModel::RenderModel(objl::Mesh mesh)
 
 void RenderModel::Render(glm::mat4 V, glm::mat4 P, glm::mat4 M, glm::vec3 cameraPos) {
 
-	auto lightPos = glm::vec3(0,0, 0);
+	auto lightPos1 = glm::vec3(0,0, 0);
+	auto lightPos2 = glm::vec3(-20, 20, 0);
 
 	auto sp = this->shader;
 
@@ -75,7 +76,9 @@ void RenderModel::Render(glm::mat4 V, glm::mat4 P, glm::mat4 M, glm::vec3 camera
 	glUniformMatrix4fv(sp->u("V"), 1, false, glm::value_ptr(V));
 	glUniformMatrix4fv(sp->u("M"), 1, false, glm::value_ptr(M));
 	glUniform3fv(sp->u("viewPos"), 1, glm::value_ptr(cameraPos));
-	glUniform3fv(sp->u("lightPos"), 1, glm::value_ptr(lightPos));
+	glUniform3fv(sp->u("lightPos1"), 1, glm::value_ptr(lightPos1));
+	glUniform3fv(sp->u("lightPos2"), 1, glm::value_ptr(lightPos2));
+	
 
 	glEnableVertexAttribArray(sp->a("vertex"));  //Włącz przesyłanie danych do atrybutu vertex
 	glVertexAttribPointer(sp->a("vertex"), 4, GL_FLOAT, false, 0, positions.data()); //Wskaż tablicę z danymi dla atrybutu vertex
@@ -114,6 +117,11 @@ void RenderModel::Render(glm::mat4 V, glm::mat4 P, glm::mat4 M, glm::vec3 camera
 		glUniform1i(sp->u("roughnessMap"), 3);
 		glActiveTexture(GL_TEXTURE3);
 		glBindTexture(GL_TEXTURE_2D, roughnessMap);
+	}
+	if (heightMap != -1) {
+		glUniform1i(sp->u("heightMap"), 4);
+		glActiveTexture(GL_TEXTURE4);
+		glBindTexture(GL_TEXTURE_2D, heightMap);
 	}
 
 	

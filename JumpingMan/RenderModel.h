@@ -24,6 +24,7 @@ public:
 	GLuint normalMap;
 	GLuint metallicMap;
 	GLuint roughnessMap;
+	GLuint heightMap;
 	ShaderProgram* shader;
 
 	std::string name;

@@ -145,6 +145,13 @@ void GameEngine::LoadTextures()
 		}
 	}
 
+	for (const auto& entry : fs::directory_iterator(fs::path("textures/height"))) {
+		if (entry.is_regular_file()) {
+			heightMaps[entry.path().filename().stem().string()] = ReadTexture(entry.path().string());
+			//std::cout << "Loaded texture: " << entry.path().string() << '\n';
+		}
+	}
+
 
 
 	
@@ -172,6 +179,7 @@ void GameEngine::LoadModels()
 			std::string normal_map = std::filesystem::path(mesh.MeshMaterial.map_bump).stem().string();
 			std::string metallic_map = std::filesystem::path(mesh.MeshMaterial.refl).stem().string();
 			std::string rougness_map = std::filesystem::path(mesh.MeshMaterial.map_Ns).stem().string();
+			std::string height_map = std::filesystem::path(mesh.MeshMaterial.map_Ks).stem().string();
 
 			RenderModel newModel(mesh);
 			
@@ -187,8 +195,11 @@ void GameEngine::LoadModels()
 			if (roughnessMaps.count(rougness_map) == 1) {
 				newModel.roughnessMap = roughnessMaps.at(rougness_map);
 			}
+			if (heightMaps.count(height_map) == 1) {
+				newModel.heightMap = heightMaps.at(height_map);
+			}
 			
-			if (mesh.MeshMaterial.name == "building") {
+			if (mesh.MeshMaterial.name != "textured") {
 				newModel.shader = shaders.at("custom");
 			}
 			else {

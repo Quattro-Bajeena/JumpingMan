@@ -31,6 +31,7 @@ private:
 	std::map<std::string, GLuint> normalMaps;
 	std::map<std::string, GLuint> metallicMaps;
 	std::map<std::string, GLuint> roughnessMaps;
+	std::map<std::string, GLuint> heightMaps;
 
 	std::map<std::string, RenderModel> models;
 	std::map<std::string, ShaderProgram*> shaders;

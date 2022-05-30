@@ -1,8 +1,23 @@
 # Blender MTL File: 'models.blend'
-# Material Count: 6
+# Material Count: 4
+
+newmtl Bricks
+Ns 225.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Bump F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\normal\\redbricks2b-normal.png
+map_Kd F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\color\\redbricks2b-albedo.png
+map_Ks F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\height\\redbricks2b-height4b.png
+map_Ns F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\roughness\\redbricks2b-rough.png
+refl F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\metallic\\redbricks2b-metalness.png
 
 newmtl Default_OBJ
-Ns 250.000000
+Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
 Ks 0.500000 0.500000 0.500000
@@ -10,54 +25,11 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 2
-map_Kd C:\\Users\\Kubi\\Desktop\\Projekt grafika\\JumpingMan\\textures\\Arrows.png
-
-newmtl Floor
-Ns 250.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.500000 0.500000 0.500000
-Ke 0.000000 0.000000 0.000000
-Ni 1.450000
-d 1.000000
-illum 2
-map_Kd C:\\Users\\Kubi\\Desktop\\Projekt grafika\\JumpingMan\\textures\\CheckeredTexture.png
-
-newmtl Floor.001
-Ns 250.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.500000 0.500000 0.500000
-Ke 0.000000 0.000000 0.000000
-Ni 1.450000
-d 1.000000
-illum 2
-map_Kd C:\\Users\\Kubi\\Desktop\\Projekt grafika\\JumpingMan\\textures\\CheckeredTexture.png
-
-newmtl Floor.002
-Ns 250.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.500000 0.500000 0.500000
-Ke 0.000000 0.000000 0.000000
-Ni 1.450000
-d 1.000000
-illum 2
-map_Kd C:\\Users\\Kubi\\Desktop\\Projekt grafika\\JumpingMan\\textures\\CheckeredTexture.png
-
-newmtl Floor.003
-Ns 250.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.500000 0.500000 0.500000
-Ke 0.000000 0.000000 0.000000
-Ni 1.450000
-d 1.000000
-illum 2
-map_Kd C:\\Users\\Kubi\\Desktop\\Projekt grafika\\JumpingMan\\textures\\CheckeredTexture.png
+map_Bump F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\color\\Arrows.png
+map_Kd F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\color\\Arrows.png
 
 newmtl building
-Ns 250.000000
+Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
 Ks 0.581967 0.581967 0.581967
@@ -65,7 +37,19 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 2
-map_Bump C:\\Users\\Kubi\\Desktop\\Projekt grafika\\JumpingMan\\textures\\normal\\1K-facade_2_normal.png
-map_Kd C:\\Users\\Kubi\\Desktop\\Projekt grafika\\JumpingMan\\textures\\color\\1K-facade_2_basecolor.png
-map_Ns C:\\Users\\Kubi\\Desktop\\Projekt grafika\\JumpingMan\\textures\\roughness\\1K-facade_2_roughness.png
-refl C:\\Users\\Kubi\\Desktop\\Projekt grafika\\JumpingMan\\textures\\metallic\\1K-facade_2_metallic.png
+map_Bump F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\normal\\1K-facade_2_normal.png
+map_Kd F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\color\\1K-facade_2_basecolor.png
+map_Ks F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\height\\1K-facade_2_height.png
+map_Ns F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\roughness\\1K-facade_2_roughness.png
+refl F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\metallic\\1K-facade_2_metallic.png
+
+newmtl textured
+Ns 225.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\color\\CheckeredTexture.png
