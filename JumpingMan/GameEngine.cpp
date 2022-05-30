@@ -176,7 +176,7 @@ void GameEngine::LoadModels()
 			RenderModel newModel(mesh);
 			
 			if (textures.count(color_texture) == 1) {
-				newModel.colorTexture = textures.at(color_texture);
+				newModel.diffuseMap = textures.at(color_texture);
 			}
 			if (normalMaps.count(normal_map) == 1) {
 				newModel.normalMap = normalMaps.at(normal_map);

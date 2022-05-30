@@ -1,42 +1,43 @@
 #version 330
 
 //Zmienne jednorodne
-uniform mat4 P;
-uniform mat4 V;
-uniform mat4 M;
-uniform vec4 viewPos;
-uniform vec4 lightPos;
+uniform mat4 P; //projection
+uniform mat4 V; //view
+uniform mat4 M; //model
+uniform vec3 viewPos;
+uniform vec3 lightPos;
 
 //Atrybuty
 in vec4 vertex; //wspolrzedne wierzcholka w przestrzeni modelu
-in vec4 normal; //wektor normalny w przestrzeni modelu
+in vec3 normal; //wektor normalny w przestrzeni modelu
 in vec2 texCoord;
 
-in vec4 tangent;
-in vec4 bitangent;
-
-//Zmienne interpolowane
-//out vec4 ic;
-out vec4 lightDir;
-out vec4 normalDir;
-out vec4 viewDir;
-out vec2 iTexCoord;
+in vec3 tangent;
+in vec3 bitangent;
 
 
+out vec2 TexCoord;
+out vec3 FragPosTS; //TS = tangent space
+out vec3 LightPosTS;
+out vec3 ViewPosTS;
 
-void main(void) {
-    vec4 normal_camera = normalize(V * M * normal);
-    vec4 tangent_cameraspace = normalize(V * M * tangent);
-    vec4 bitangent_cameraspace = normalize(V * M* bitangent);
-	mat4 invTBM = transpose(mat4(normal, tangent, bitangent, vec4(0,0,0,1)));
 
-    //lightDir = normalize(invTBM * (inverse(M)* lightPos - vertex)); 
-    //viewDir = normalize( invTBM * (inverse(V*M)* viewPos - vertex)); 
 
-    lightDir = normalize(V * lightPos - V*M*vertex); //wektor do światła w przestrzeni oka
-    viewDir = normalize(viewPos - V * M * vertex); //wektor do obserwatora w przestrzeni oka
-    normalDir = normalize(V * M * normal); //wektor normalny w przestrzeni oka
+void main(void){
+    vec3 FragPos = vec3(M * vertex);
+    TexCoord = texCoord;
 
-    iTexCoord = texCoord;
-    gl_Position=P*V*M*vertex;
+    mat3 modelVector = transpose(inverse(mat3(M)));
+    vec3 T = normalize(modelVector * tangent);
+    vec3 B = normalize(modelVector * bitangent);
+    vec3 N = normalize(modelVector * normal);
+    mat3 TBN = transpose(mat3(T, B, N));
+
+    FragPosTS = TBN * FragPos;
+    LightPosTS = TBN * lightPos;
+    ViewPosTS = TBN * viewPos;
+
+    gl_Position = P*V*M*vertex;
+
+
 }

@@ -8,14 +8,14 @@
 
 RenderModel::RenderModel(objl::Mesh mesh)
 {
-	colorTexture = normalMap = metallicMap = roughnessMap = -1;
+	diffuseMap = normalMap = metallicMap = roughnessMap = -1;
 	name = mesh.MeshName;
 	vertexCount = mesh.Vertices.size();
 	for (int j = 0; j < mesh.Vertices.size(); j++)
 	{
 		objl::Vertex vertex = mesh.Vertices[j];
 		positions.insert(positions.end(), { vertex.Position.X, vertex.Position.Y, vertex.Position.Z, 1 });
-		normals.insert(normals.end(), { vertex.Normal.X, vertex.Normal.Y, vertex.Normal.Z, 0 });
+		normals.insert(normals.end(), { vertex.Normal.X, vertex.Normal.Y, vertex.Normal.Z });
 		texCoords.insert(texCoords.end(), { vertex.TextureCoordinate.X, -1 * vertex.TextureCoordinate.Y });
 	}
 
@@ -42,12 +42,16 @@ RenderModel::RenderModel(objl::Mesh mesh)
 		auto tangent = (deltaPos1 * deltaUV2.Y - deltaPos2 * deltaUV1.Y) * r;
 		auto bitangent = (deltaPos2 * deltaUV1.X - deltaPos1 * deltaUV2.X) * r;
 
+		tangent.Normalize();
+		bitangent.Normalize();
+		
+
 		for (int j = 0; j < 3; j++) {
-			tangents.insert(tangents.end(), { tangent.X, tangent.Y, tangent.Z, 0 });
+			tangents.insert(tangents.end(), { tangent.X, tangent.Y, tangent.Z });
 		}
 
 		for (int j = 0; j < 3; j++) {
-			bitangents.insert(bitangents.end(), { bitangent.X, bitangent.Y, bitangent.Z, 0 });
+			bitangents.insert(bitangents.end(), { bitangent.X, bitangent.Y, bitangent.Z });
 		}
 		
 
@@ -61,8 +65,7 @@ RenderModel::RenderModel(objl::Mesh mesh)
 
 void RenderModel::Render(glm::mat4 V, glm::mat4 P, glm::mat4 M, glm::vec3 cameraPos) {
 
-	glm::vec4 lightPos = glm::vec4(0,0, 0, 1);
-	glm::vec4 viewPos = glm::vec4(cameraPos, 1);
+	auto lightPos = glm::vec3(0,0, 0);
 
 	auto sp = this->shader;
 
@@ -71,8 +74,8 @@ void RenderModel::Render(glm::mat4 V, glm::mat4 P, glm::mat4 M, glm::vec3 camera
 	glUniformMatrix4fv(sp->u("P"), 1, false, glm::value_ptr(P));
 	glUniformMatrix4fv(sp->u("V"), 1, false, glm::value_ptr(V));
 	glUniformMatrix4fv(sp->u("M"), 1, false, glm::value_ptr(M));
-	glUniform4fv(sp->u("viewPos"), 1, glm::value_ptr(viewPos));
-	glUniform4fv(sp->u("lightPos"), 1, glm::value_ptr(lightPos));
+	glUniform3fv(sp->u("viewPos"), 1, glm::value_ptr(cameraPos));
+	glUniform3fv(sp->u("lightPos"), 1, glm::value_ptr(lightPos));
 
 	glEnableVertexAttribArray(sp->a("vertex"));  //Włącz przesyłanie danych do atrybutu vertex
 	glVertexAttribPointer(sp->a("vertex"), 4, GL_FLOAT, false, 0, positions.data()); //Wskaż tablicę z danymi dla atrybutu vertex
@@ -84,18 +87,18 @@ void RenderModel::Render(glm::mat4 V, glm::mat4 P, glm::mat4 M, glm::vec3 camera
 	glVertexAttribPointer(sp->a("texCoord"), 2, GL_FLOAT, false, 0, texCoords.data());
 
 	glEnableVertexAttribArray(sp->a("normal"));
-	glVertexAttribPointer(sp->a("normal"), 4, GL_FLOAT, false, 0, normals.data());
+	glVertexAttribPointer(sp->a("normal"), 3, GL_FLOAT, false, 0, normals.data());
 
 	glEnableVertexAttribArray(sp->a("tangent"));
-	glVertexAttribPointer(sp->a("tangent"), 4, GL_FLOAT, false, 0, tangents.data());
+	glVertexAttribPointer(sp->a("tangent"), 3, GL_FLOAT, false, 0, tangents.data());
 
 	glEnableVertexAttribArray(sp->a("bitangent"));
-	glVertexAttribPointer(sp->a("bitangent"), 4, GL_FLOAT, false, 0, bitangents.data());
+	glVertexAttribPointer(sp->a("bitangent"), 3, GL_FLOAT, false, 0, bitangents.data());
 
-	if (colorTexture != -1) {
-		glUniform1i(sp->u("textureMap"), 0);
+	if (diffuseMap != -1) {
+		glUniform1i(sp->u("diffuseMap"), 0);
 		glActiveTexture(GL_TEXTURE0);
-		glBindTexture(GL_TEXTURE_2D, colorTexture);
+		glBindTexture(GL_TEXTURE_2D, diffuseMap);
 	}
 	if (normalMap != -1) {
 		glUniform1i(sp->u("normalMap"), 1);

@@ -20,7 +20,7 @@ private:
 
 public:
 
-	GLuint colorTexture;
+	GLuint diffuseMap;
 	GLuint normalMap;
 	GLuint metallicMap;
 	GLuint roughnessMap;

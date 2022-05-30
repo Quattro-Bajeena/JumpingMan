@@ -1,41 +1,37 @@
 #version 330
 
 
-uniform sampler2D textureMap;
+uniform sampler2D diffuseMap;
 uniform sampler2D normalMap;
 uniform sampler2D metallicMap;
 uniform sampler2D roughnessMap;
 
-out vec4 pixelColor; 
+out vec4 FragColor; 
 
-in vec4 lightDir;
-in vec4 normalDir;
-in vec4 viewDir;
-in vec2 iTexCoord;
+in vec2 TexCoord;
+in vec3 LightPosTS;
+in vec3 FragPosTS;
+in vec3 ViewPosTS;
 
-void main(void) {
 
-	//Znormalizowane interpolowane wektory
-	vec4 normLightDir = normalize(lightDir);
-	vec4 normViewDir = normalize(viewDir);
-	vec2 texCoord = iTexCoord;
+void main(void){
+	vec3 normal = vec3(0,0,1.0);
+	normal = texture(normalMap, TexCoord).rgb;
+	normal = normalize(normal * 2.0 - 1.0);
 
-	vec4 normNormalDir = normalize(normalDir);
-	//vec4 normNormalDir = normalize(vec4(texture(normalMap, iTexCoord).rgb*2-1, 0));
 	
-	//Wektor odbity
-	vec4 mr = reflect(-normLightDir, normNormalDir);
+	vec3 color = texture(diffuseMap, TexCoord).rgb;
+	vec3 ambient = 0.1 * color;
 
-	//Parametry powierzchni
-	vec4 kd = texture(textureMap, texCoord); 
-	vec4 ks = vec4(1, 1, 1, 1);
+	vec3 lightDir = normalize(LightPosTS - FragPosTS);
+	float diff = max(dot(lightDir, normal), 0.0);
+	vec3 diffuse = diff * color;
 
-	//Obliczenie modelu oświetlenia
-	float nl = clamp(dot(normNormalDir, normLightDir), 0, 1);
-	float rv = pow(clamp(dot(mr, normViewDir), 0, 1),25);
+	vec3 viewDir = normalize(ViewPosTS - FragPosTS);
+	vec3 reflectDir = reflect(-lightDir, normal);
+	vec3 halfwayDir = normalize(lightDir + viewDir);
+	float spec = pow(max(dot(normal, halfwayDir), 0.0), 25.0);
+	vec3 specular = vec3(1.0) * spec;
 
-	pixelColor= vec4(kd.rgb * nl, kd.a) + vec4(ks.rgb*rv, 0);
-
-
-	//pixelColor=texture(textureMap,iTexCoord);
+	FragColor = vec4(ambient + diffuse + specular, 1.0);
 }

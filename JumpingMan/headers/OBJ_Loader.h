@@ -124,6 +124,13 @@ namespace objl
 			return Vector3(this->X / other, this->Y / other, this->Z / other);
 		}
 
+		void Normalize() {
+			float length = std::sqrt(X * X + Y * Y + Z * Z);
+			X /= length;
+			Y /= length;
+			Z /= length;
+		}
+
 		// Positional Variables
 		float X;
 		float Y;
