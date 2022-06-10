@@ -199,16 +199,21 @@ void GameEngine::LoadModels()
 				newModel.heightMap = heightMaps.at(height_map);
 			}
 			
-			if (mesh.MeshMaterial.name != "textured") {
-				newModel.shader = shaders.at("custom");
+			if (mesh.MeshMaterial.name == "textured" || mesh.MeshMaterial.name == "Skybox" || mesh.MeshMaterial.name == "droga") {
+				newModel.shader = shaders.at("textured");
 			}
 			else {
-				newModel.shader = shaders.at("textured");
+				
+				newModel.shader = shaders.at("custom");
 			}
 			
 			models[newModel.name] = newModel;
 
 			Collider collider(mesh);
+			if (newModel.name == "Skybox") {
+				collider = Collider();
+			}
+			
 
 			Object new_obj = Object(&models.at(newModel.name), collider);
 			//new_obj.position = positions.at(newModel.name);

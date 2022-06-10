@@ -19,6 +19,12 @@ Collider::Collider(objl::Mesh mesh)
 	}
 }
 
+Collider::Collider()
+{
+	maxX = maxY = maxZ = 0;
+	minX = minY = minZ = 0;
+}
+
 bool Collider::PointInside(glm::vec3 point)
 {
 	return (point.x >= minX && point.x <= maxX) &&

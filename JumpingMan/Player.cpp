@@ -82,7 +82,7 @@ void Player::Move(int forward, int side, float dt)
 void Player::Jump() {
 	if (onGround)
 	{
-		velocityY = 0.25;
+		velocityY = 0.75;
 		gravity = 0.01;
 		onGround = false;
 	}
@@ -95,6 +95,8 @@ void Player::Rotate(float pitchChange, float yawChange, float dt)
 
 	pitch += pitchChange * rotateMouseSpeed * dt;
 	yaw += yawChange * rotateMouseSpeed * dt;
+
+	pitch = std::clamp(pitch, -1.2f, 1.2f);
 
 	//std::cout << pitch << " " << yaw << "\n";
 
