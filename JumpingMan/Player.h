@@ -33,7 +33,7 @@ public:
 
 	void Move(int forward, int side, float dt);
 	void Jump();
-	void GoToStartingPos();
+	void Die();
 	void Rotate(float pitchChange, float yawChange, float dt);
 };
 

@@ -1,8 +1,8 @@
 # Blender MTL File: 'models.blend'
-# Material Count: 5
+# Material Count: 43
 
 newmtl AC
-Ns 225.000000
+Ns 250.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
 Ks 0.500000 0.500000 0.500000
@@ -10,11 +10,155 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 2
-map_Bump F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\normal\\ACtexturenormal.png
-map_Kd F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\color\\ACtexturecolor.png
+map_Bump C:\\Users\\Kubi\\Desktop\\GrafikaProjekt\\JumpingMan\\textures\\normal\\ACtexturenormal.png
+map_Kd C:\\Users\\Kubi\\Desktop\\GrafikaProjekt\\JumpingMan\\textures\\color\\ACtexturecolor.png
+
+newmtl AC.001
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Bump C:\\Users\\Kubi\\Desktop\\GrafikaProjekt\\JumpingMan\\textures\\normal\\ACtexturenormal.png
+map_Kd C:\\Users\\Kubi\\Desktop\\GrafikaProjekt\\JumpingMan\\textures\\color\\ACtexturecolor.png
+
+newmtl AC.002
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Bump C:\\Users\\Kubi\\Desktop\\GrafikaProjekt\\JumpingMan\\textures\\normal\\ACtexturenormal.png
+map_Kd C:\\Users\\Kubi\\Desktop\\GrafikaProjekt\\JumpingMan\\textures\\color\\ACtexturecolor.png
+
+newmtl AC.003
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Bump C:\\Users\\Kubi\\Desktop\\GrafikaProjekt\\JumpingMan\\textures\\normal\\ACtexturenormal.png
+map_Kd C:\\Users\\Kubi\\Desktop\\GrafikaProjekt\\JumpingMan\\textures\\color\\ACtexturecolor.png
+
+newmtl AC.004
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Bump C:\\Users\\Kubi\\Desktop\\GrafikaProjekt\\JumpingMan\\textures\\normal\\ACtexturenormal.png
+map_Kd C:\\Users\\Kubi\\Desktop\\GrafikaProjekt\\JumpingMan\\textures\\color\\ACtexturecolor.png
+
+newmtl AC.005
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Bump C:\\Users\\Kubi\\Desktop\\GrafikaProjekt\\JumpingMan\\textures\\normal\\ACtexturenormal.png
+map_Kd C:\\Users\\Kubi\\Desktop\\GrafikaProjekt\\JumpingMan\\textures\\color\\ACtexturecolor.png
+
+newmtl AC.006
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Bump C:\\Users\\Kubi\\Desktop\\GrafikaProjekt\\JumpingMan\\textures\\normal\\ACtexturenormal.png
+map_Kd C:\\Users\\Kubi\\Desktop\\GrafikaProjekt\\JumpingMan\\textures\\color\\ACtexturecolor.png
+
+newmtl AC.007
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Bump C:\\Users\\Kubi\\Desktop\\GrafikaProjekt\\JumpingMan\\textures\\normal\\ACtexturenormal.png
+map_Kd C:\\Users\\Kubi\\Desktop\\GrafikaProjekt\\JumpingMan\\textures\\color\\ACtexturecolor.png
+
+newmtl AC.008
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Bump C:\\Users\\Kubi\\Desktop\\GrafikaProjekt\\JumpingMan\\textures\\normal\\ACtexturenormal.png
+map_Kd C:\\Users\\Kubi\\Desktop\\GrafikaProjekt\\JumpingMan\\textures\\color\\ACtexturecolor.png
+
+newmtl AC.009
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Bump C:\\Users\\Kubi\\Desktop\\GrafikaProjekt\\JumpingMan\\textures\\normal\\ACtexturenormal.png
+map_Kd C:\\Users\\Kubi\\Desktop\\GrafikaProjekt\\JumpingMan\\textures\\color\\ACtexturecolor.png
+
+newmtl AC.010
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Bump C:\\Users\\Kubi\\Desktop\\GrafikaProjekt\\JumpingMan\\textures\\normal\\ACtexturenormal.png
+map_Kd C:\\Users\\Kubi\\Desktop\\GrafikaProjekt\\JumpingMan\\textures\\color\\ACtexturecolor.png
+
+newmtl AC.011
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Bump C:\\Users\\Kubi\\Desktop\\GrafikaProjekt\\JumpingMan\\textures\\normal\\ACtexturenormal.png
+map_Kd C:\\Users\\Kubi\\Desktop\\GrafikaProjekt\\JumpingMan\\textures\\color\\ACtexturecolor.png
+
+newmtl AC.012
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Bump C:\\Users\\Kubi\\Desktop\\GrafikaProjekt\\JumpingMan\\textures\\normal\\ACtexturenormal.png
+map_Kd C:\\Users\\Kubi\\Desktop\\GrafikaProjekt\\JumpingMan\\textures\\color\\ACtexturecolor.png
 
 newmtl Skybox
-Ns 225.000000
+Ns 250.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
 Ks 0.500000 0.500000 0.500000
@@ -22,10 +166,10 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 2
-map_Kd F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\color\\png-transparent-skybox-texture-mapping-minecraft-half-life-community-group-city-skyline-map.png
+map_Kd C:\\Users\\Kubi\\Desktop\\GrafikaProjekt\\JumpingMan\\textures\\color\\png-transparent-skybox-texture-mapping-minecraft-half-life-community-group-city-skyline-map.png
 
 newmtl building1
-Ns 225.000000
+Ns 250.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
 Ks 0.581967 0.581967 0.581967
@@ -33,14 +177,29 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 2
-map_Bump F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\normal\\1K-facade_2_normal.png
-map_Kd F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\color\\1K-facade_2_basecolor.png
-map_Ks F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\height\\1K-facade_2_height.png
-map_Ns F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\roughness\\1K-facade_2_roughness.png
-refl F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\metallic\\1K-facade_2_metallic.png
+map_Bump C:\\Users\\Kubi\\Desktop\\GrafikaProjekt\\JumpingMan\\textures\\normal\\1K-facade_2_normal.png
+map_Kd C:\\Users\\Kubi\\Desktop\\GrafikaProjekt\\JumpingMan\\textures\\color\\1K-facade_2_basecolor.png
+map_Ks C:\\Users\\Kubi\\Desktop\\GrafikaProjekt\\JumpingMan\\textures\\height\\1K-facade_2_height.png
+map_Ns C:\\Users\\Kubi\\Desktop\\GrafikaProjekt\\JumpingMan\\textures\\roughness\\1K-facade_2_roughness.png
+refl C:\\Users\\Kubi\\Desktop\\GrafikaProjekt\\JumpingMan\\textures\\metallic\\1K-facade_2_metallic.png
+
+newmtl building1.001
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.581967 0.581967 0.581967
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Bump C:\\Users\\Kubi\\Desktop\\GrafikaProjekt\\JumpingMan\\textures\\normal\\1K-facade_2_normal.png
+map_Kd C:\\Users\\Kubi\\Desktop\\GrafikaProjekt\\JumpingMan\\textures\\color\\1K-facade_2_basecolor.png
+map_Ks C:\\Users\\Kubi\\Desktop\\GrafikaProjekt\\JumpingMan\\textures\\height\\1K-facade_2_height.png
+map_Ns C:\\Users\\Kubi\\Desktop\\GrafikaProjekt\\JumpingMan\\textures\\roughness\\1K-facade_2_roughness.png
+refl C:\\Users\\Kubi\\Desktop\\GrafikaProjekt\\JumpingMan\\textures\\metallic\\1K-facade_2_metallic.png
 
 newmtl droga
-Ns 225.000000
+Ns 250.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
 Ks 0.500000 0.500000 0.500000
@@ -48,10 +207,10 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 2
-map_Kd F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\color\\droga.png
+map_Kd C:\\Users\\Kubi\\Desktop\\GrafikaProjekt\\JumpingMan\\textures\\color\\droga.jpg
 
 newmtl gravel
-Ns 225.000000
+Ns 250.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
 Ks 0.500000 0.500000 0.500000
@@ -59,5 +218,305 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 2
-map_Bump F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\normal\\gravel_path_Normal-ogl.png
-map_Kd F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\color\\gravel_path-albedo.png
+map_Bump C:\\Users\\Kubi\\Desktop\\GrafikaProjekt\\JumpingMan\\textures\\normal\\gravel_path_Normal-ogl.png
+map_Kd C:\\Users\\Kubi\\Desktop\\GrafikaProjekt\\JumpingMan\\textures\\color\\gravel_path-albedo.png
+
+newmtl gravel.001
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Bump C:\\Users\\Kubi\\Desktop\\GrafikaProjekt\\JumpingMan\\textures\\normal\\gravel_path_Normal-ogl.png
+map_Kd C:\\Users\\Kubi\\Desktop\\GrafikaProjekt\\JumpingMan\\textures\\color\\gravel_path-albedo.png
+
+newmtl gravel.002
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Bump C:\\Users\\Kubi\\Desktop\\GrafikaProjekt\\JumpingMan\\textures\\normal\\gravel_path_Normal-ogl.png
+map_Kd C:\\Users\\Kubi\\Desktop\\GrafikaProjekt\\JumpingMan\\textures\\color\\gravel_path-albedo.png
+
+newmtl gravel.003
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Bump C:\\Users\\Kubi\\Desktop\\GrafikaProjekt\\JumpingMan\\textures\\normal\\gravel_path_Normal-ogl.png
+map_Kd C:\\Users\\Kubi\\Desktop\\GrafikaProjekt\\JumpingMan\\textures\\color\\gravel_path-albedo.png
+
+newmtl gravel.004
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Bump C:\\Users\\Kubi\\Desktop\\GrafikaProjekt\\JumpingMan\\textures\\normal\\gravel_path_Normal-ogl.png
+map_Kd C:\\Users\\Kubi\\Desktop\\GrafikaProjekt\\JumpingMan\\textures\\color\\gravel_path-albedo.png
+
+newmtl gravel.005
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Bump C:\\Users\\Kubi\\Desktop\\GrafikaProjekt\\JumpingMan\\textures\\normal\\gravel_path_Normal-ogl.png
+map_Kd C:\\Users\\Kubi\\Desktop\\GrafikaProjekt\\JumpingMan\\textures\\color\\gravel_path-albedo.png
+
+newmtl gravel.006
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Bump C:\\Users\\Kubi\\Desktop\\GrafikaProjekt\\JumpingMan\\textures\\normal\\gravel_path_Normal-ogl.png
+map_Kd C:\\Users\\Kubi\\Desktop\\GrafikaProjekt\\JumpingMan\\textures\\color\\gravel_path-albedo.png
+
+newmtl gravel.007
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Bump C:\\Users\\Kubi\\Desktop\\GrafikaProjekt\\JumpingMan\\textures\\normal\\gravel_path_Normal-ogl.png
+map_Kd C:\\Users\\Kubi\\Desktop\\GrafikaProjekt\\JumpingMan\\textures\\color\\gravel_path-albedo.png
+
+newmtl gravel.008
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Bump C:\\Users\\Kubi\\Desktop\\GrafikaProjekt\\JumpingMan\\textures\\normal\\gravel_path_Normal-ogl.png
+map_Kd C:\\Users\\Kubi\\Desktop\\GrafikaProjekt\\JumpingMan\\textures\\color\\gravel_path-albedo.png
+
+newmtl gravel.009
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Bump C:\\Users\\Kubi\\Desktop\\GrafikaProjekt\\JumpingMan\\textures\\normal\\gravel_path_Normal-ogl.png
+map_Kd C:\\Users\\Kubi\\Desktop\\GrafikaProjekt\\JumpingMan\\textures\\color\\gravel_path-albedo.png
+
+newmtl gravel.010
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Bump C:\\Users\\Kubi\\Desktop\\GrafikaProjekt\\JumpingMan\\textures\\normal\\gravel_path_Normal-ogl.png
+map_Kd C:\\Users\\Kubi\\Desktop\\GrafikaProjekt\\JumpingMan\\textures\\color\\gravel_path-albedo.png
+
+newmtl gravel.011
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Bump C:\\Users\\Kubi\\Desktop\\GrafikaProjekt\\JumpingMan\\textures\\normal\\gravel_path_Normal-ogl.png
+map_Kd C:\\Users\\Kubi\\Desktop\\GrafikaProjekt\\JumpingMan\\textures\\color\\gravel_path-albedo.png
+
+newmtl gravel.012
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Bump C:\\Users\\Kubi\\Desktop\\GrafikaProjekt\\JumpingMan\\textures\\normal\\gravel_path_Normal-ogl.png
+map_Kd C:\\Users\\Kubi\\Desktop\\GrafikaProjekt\\JumpingMan\\textures\\color\\gravel_path-albedo.png
+
+newmtl gravel.013
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Bump C:\\Users\\Kubi\\Desktop\\GrafikaProjekt\\JumpingMan\\textures\\normal\\gravel_path_Normal-ogl.png
+map_Kd C:\\Users\\Kubi\\Desktop\\GrafikaProjekt\\JumpingMan\\textures\\color\\gravel_path-albedo.png
+
+newmtl gravel.014
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Bump C:\\Users\\Kubi\\Desktop\\GrafikaProjekt\\JumpingMan\\textures\\normal\\gravel_path_Normal-ogl.png
+map_Kd C:\\Users\\Kubi\\Desktop\\GrafikaProjekt\\JumpingMan\\textures\\color\\gravel_path-albedo.png
+
+newmtl gravel.015
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Bump C:\\Users\\Kubi\\Desktop\\GrafikaProjekt\\JumpingMan\\textures\\normal\\gravel_path_Normal-ogl.png
+map_Kd C:\\Users\\Kubi\\Desktop\\GrafikaProjekt\\JumpingMan\\textures\\color\\gravel_path-albedo.png
+
+newmtl gravel.016
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Bump C:\\Users\\Kubi\\Desktop\\GrafikaProjekt\\JumpingMan\\textures\\normal\\gravel_path_Normal-ogl.png
+map_Kd C:\\Users\\Kubi\\Desktop\\GrafikaProjekt\\JumpingMan\\textures\\color\\gravel_path-albedo.png
+
+newmtl gravel.017
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Bump C:\\Users\\Kubi\\Desktop\\GrafikaProjekt\\JumpingMan\\textures\\normal\\gravel_path_Normal-ogl.png
+map_Kd C:\\Users\\Kubi\\Desktop\\GrafikaProjekt\\JumpingMan\\textures\\color\\gravel_path-albedo.png
+
+newmtl gravel.018
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Bump C:\\Users\\Kubi\\Desktop\\GrafikaProjekt\\JumpingMan\\textures\\normal\\gravel_path_Normal-ogl.png
+map_Kd C:\\Users\\Kubi\\Desktop\\GrafikaProjekt\\JumpingMan\\textures\\color\\gravel_path-albedo.png
+
+newmtl gravel.019
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Bump C:\\Users\\Kubi\\Desktop\\GrafikaProjekt\\JumpingMan\\textures\\normal\\gravel_path_Normal-ogl.png
+map_Kd C:\\Users\\Kubi\\Desktop\\GrafikaProjekt\\JumpingMan\\textures\\color\\gravel_path-albedo.png
+
+newmtl gravel.020
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Bump C:\\Users\\Kubi\\Desktop\\GrafikaProjekt\\JumpingMan\\textures\\normal\\gravel_path_Normal-ogl.png
+map_Kd C:\\Users\\Kubi\\Desktop\\GrafikaProjekt\\JumpingMan\\textures\\color\\gravel_path-albedo.png
+
+newmtl gravel.021
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Bump C:\\Users\\Kubi\\Desktop\\GrafikaProjekt\\JumpingMan\\textures\\normal\\gravel_path_Normal-ogl.png
+map_Kd C:\\Users\\Kubi\\Desktop\\GrafikaProjekt\\JumpingMan\\textures\\color\\gravel_path-albedo.png
+
+newmtl gravel.022
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Bump C:\\Users\\Kubi\\Desktop\\GrafikaProjekt\\JumpingMan\\textures\\normal\\gravel_path_Normal-ogl.png
+map_Kd C:\\Users\\Kubi\\Desktop\\GrafikaProjekt\\JumpingMan\\textures\\color\\gravel_path-albedo.png
+
+newmtl gravel.023
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Bump C:\\Users\\Kubi\\Desktop\\GrafikaProjekt\\JumpingMan\\textures\\normal\\gravel_path_Normal-ogl.png
+map_Kd C:\\Users\\Kubi\\Desktop\\GrafikaProjekt\\JumpingMan\\textures\\color\\gravel_path-albedo.png
+
+newmtl gravel.024
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Bump C:\\Users\\Kubi\\Desktop\\GrafikaProjekt\\JumpingMan\\textures\\normal\\gravel_path_Normal-ogl.png
+map_Kd C:\\Users\\Kubi\\Desktop\\GrafikaProjekt\\JumpingMan\\textures\\color\\gravel_path-albedo.png
+
+newmtl gravel.025
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Bump C:\\Users\\Kubi\\Desktop\\GrafikaProjekt\\JumpingMan\\textures\\normal\\gravel_path_Normal-ogl.png
+map_Kd C:\\Users\\Kubi\\Desktop\\GrafikaProjekt\\JumpingMan\\textures\\color\\gravel_path-albedo.png

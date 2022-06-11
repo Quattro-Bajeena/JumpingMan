@@ -39,7 +39,7 @@ void GameEngine::KeyInputCallback(int key, int scancode, int action, int mod)
 			//std::cout << "spacja" << std::endl; 
 			player.Jump(); }
 		}
-	if (key == GLFW_KEY_R) player.GoToStartingPos();
+	
 
 	if (action == GLFW_RELEASE) {
 
@@ -130,7 +130,7 @@ void GameEngine::LoadTextures()
 			//std::cout << "Loaded texture: " << entry.path().string() << '\n';
 		}
 	}
-
+	/*
 	for (const auto& entry : fs::directory_iterator(fs::path("textures/metallic"))) {
 		if (entry.is_regular_file()) {
 			metallicMaps[entry.path().filename().stem().string()] = ReadTexture(entry.path().string());
@@ -151,7 +151,7 @@ void GameEngine::LoadTextures()
 			//std::cout << "Loaded texture: " << entry.path().string() << '\n';
 		}
 	}
-
+	*/
 
 
 	
@@ -273,7 +273,11 @@ void GameEngine::Update(float dt) {
 
 	}
 	player.floorLevel = maxFloorLevel;
-	//std::cout << "FL: " << player.floorLevel << " POSY: " << player.position.y <<std::endl;
+
+	//std::cout << "FL: " << player.floorLevel << " POSY: " << player.position.y << " onground: " << player.onGround <<std::endl;
+	
+
+	
 
 }
 
@@ -337,7 +341,7 @@ GameEngine::GameEngine() {
 	glfwSetTime(0);
 	lastTime = 0;
 
-	//player = new Player();
+	//Player player = new Player();
 	//player.position = glm::vec3(0, 0, 0);
 
 }

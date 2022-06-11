@@ -13,8 +13,8 @@ Player::Player()
 	maxSpeed = 10;
 
 	velocityY = 0;
-	gravity = 0.01;
-	floorLevel = 0;
+	gravity = 0;
+	//floorLevel = 0;
 	onGround = false;
 }
 
@@ -54,6 +54,7 @@ void Player::Move(int forward, int side, float dt)
 	//gravity
 	if (!onGround)
 	{
+		gravity = 0.01;
 		position.y += velocityY;
 		velocityY -= gravity;
 	}
@@ -71,11 +72,14 @@ void Player::Move(int forward, int side, float dt)
 	}
 	else if (position.y > floorLevel + 0.18) {
 		onGround = false;
-		gravity = 0.01;
+		//gravity = 0.01;
 	}
 
-	//reset pos if fall to low
-	//if (position.y < -10) pos = glm::vec3(position.x, 5, position.z);
+	if (position.y < -24)
+	{
+		Die();
+		
+	}
 
 
 }
@@ -87,8 +91,10 @@ void Player::Jump() {
 		onGround = false;
 	}
 }
-void Player::GoToStartingPos() {
+void Player::Die() {
 	position = glm::vec3(0, 0, 0);
+	
+	//std::cout << "Died.  FL: " << floorLevel << " POSY: " << position.y << std::endl;
 }
 void Player::Rotate(float pitchChange, float yawChange, float dt)
 {
