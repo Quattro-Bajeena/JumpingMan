@@ -16,40 +16,10 @@ void GameEngine::WindowResizeCallback(GLFWwindow* window, int width, int height)
 	glViewport(0, 0, width, height);
 }
 
-void GameEngine::KeyCallBack(
-	GLFWwindow* window,
-	int key,
-	int scancode,
-	int action,
-	int mod
-) {
-	GameEngine* engine = (GameEngine*)glfwGetWindowUserPointer(window);
-	engine->KeyInputCallback(key, scancode, action, mod);
-}
-
-void GameEngine::KeyInputCallback(int key, int scancode, int action, int mod)
-{
-	if (action == GLFW_PRESS) {
-		if (key == GLFW_KEY_LEFT) rotateObjectsY = PI;
-		if (key == GLFW_KEY_RIGHT) rotateObjectsY = -PI;
-		if (key == GLFW_KEY_UP) rotateObjectsX = -PI;
-		if (key == GLFW_KEY_DOWN) rotateObjectsX = PI;
-
-		if (key == GLFW_KEY_SPACE) { 
-			//std::cout << "spacja" << std::endl; 
-			player.Jump(); }
-		}
-	
-
-	if (action == GLFW_RELEASE) {
-
-		if (key == GLFW_KEY_LEFT || key == GLFW_KEY_RIGHT) rotateObjectsY = 0;
-		if (key == GLFW_KEY_UP || key == GLFW_KEY_DOWN) rotateObjectsX = 0;
-	}
-}
 
 void GameEngine::KeyInput()
 {
+	
 	if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS) moveForward = 1;
 	else if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS) moveForward = -1;
 	else moveForward = 0;
@@ -57,6 +27,10 @@ void GameEngine::KeyInput()
 	if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS) moveSide = 1;
 	else if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS) moveSide = -1;
 	else moveSide = 0;
+
+	if (glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_PRESS) player.Jump();
+
+
 }
 
 void GameEngine::MouseInput()
@@ -103,16 +77,11 @@ void GameEngine::InitOpenGLProgram() {
 
 	glClearColor(0, 0, 0, 1);
 	glEnable(GL_DEPTH_TEST);
-	glfwSetKeyCallback(window, KeyCallBack);
 	glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 
 }
 
 
-//Zwolnienie zasobów zajętych przez program
-void GameEngine::FreeOpenGLProgram() {
-	//glDeleteTextures(1, &tex);
-}
 
 void GameEngine::LoadTextures()
 {
@@ -120,39 +89,14 @@ void GameEngine::LoadTextures()
 	for (const auto& entry : fs::directory_iterator(fs::path("textures/color"))) {
 		if (entry.is_regular_file() && entry.path().filename().extension().string() == ".png") {
 			textures[entry.path().filename().stem().string()] = ReadTexture(entry.path().string());
-			//std::cout << "Loaded texture: " << entry.path().string() << '\n';
 		}
 	}
 
 	for (const auto& entry : fs::directory_iterator(fs::path("textures/normal"))) {
 		if (entry.is_regular_file() && entry.path().filename().extension().string() == ".png") {
 			normalMaps[entry.path().filename().stem().string()] = ReadTexture(entry.path().string());
-			//std::cout << "Loaded texture: " << entry.path().string() << '\n';
 		}
 	}
-	/*
-	for (const auto& entry : fs::directory_iterator(fs::path("textures/metallic"))) {
-		if (entry.is_regular_file()) {
-			metallicMaps[entry.path().filename().stem().string()] = ReadTexture(entry.path().string());
-			//std::cout << "Loaded texture: " << entry.path().string() << '\n';
-		}
-	}
-
-	for (const auto& entry : fs::directory_iterator(fs::path("textures/roughness"))) {
-		if (entry.is_regular_file()) {
-			roughnessMaps[entry.path().filename().stem().string()] = ReadTexture(entry.path().string());
-			//std::cout << "Loaded texture: " << entry.path().string() << '\n';
-		}
-	}
-
-	for (const auto& entry : fs::directory_iterator(fs::path("textures/height"))) {
-		if (entry.is_regular_file()) {
-			heightMaps[entry.path().filename().stem().string()] = ReadTexture(entry.path().string());
-			//std::cout << "Loaded texture: " << entry.path().string() << '\n';
-		}
-	}
-	*/
-
 
 	
 }
@@ -243,14 +187,6 @@ void GameEngine::Update(float dt) {
 	KeyInput();
 
 	UpdateSunPosition(dt);
-
-	angle_x += rotateObjectsX * dt;
-	angle_y += rotateObjectsY * dt;
-
-	for (auto& object : objects) {
-		object.SetRotation(angle_x, angle_y, 0);
-	}
-	
 
 	player.Move(moveForward, moveSide, dt);
 	player.Rotate(-mouseDelta.y, mouseDelta.x, deltaTime);
@@ -405,7 +341,6 @@ GameEngine::GameEngine() {
 
 GameEngine::~GameEngine()
 {
-	FreeOpenGLProgram();
 
 	glfwDestroyWindow(window); //Usuń kontekst OpenGL i okno
 	glfwTerminate(); //Zwolnij zasoby zajęte przez GLFW

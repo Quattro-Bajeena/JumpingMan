@@ -55,19 +55,16 @@ private:
 	void Update(float dt);
 	void UpdateSunPosition(float dt);
 	void Render();
-	void KeyInputCallback(int key, int scancode, int action, int mod);
 	void KeyInput();
 	void MouseInput();
 	GLuint ReadTexture(std::string filename);
 	void InitOpenGLProgram();
-	void FreeOpenGLProgram();
 	void LoadTextures();
 	void LoadModels();
 	void LoadShaders();
 
 	//callbacks
 	static void ErrorCallback(int error, const char* description);
-	static void KeyCallBack(GLFWwindow* window, int key, int scancode, int action, int mod);
 	static void WindowResizeCallback(GLFWwindow* window, int width, int height);
 
 public:

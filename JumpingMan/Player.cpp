@@ -83,6 +83,7 @@ void Player::Move(int forward, int side, float dt)
 
 
 }
+
 void Player::Jump() {
 	if (onGround)
 	{
