@@ -36,6 +36,12 @@ private:
 	std::map<std::string, RenderModel> models;
 	std::map<std::string, ShaderProgram*> shaders;
 
+	Object sun;
+	glm::vec3 lightPos;
+	float sunRotationTime;
+	float sunTimer;
+	
+
 	std::vector<Object> objects;
 
 	Player player;
@@ -47,6 +53,7 @@ private:
 	float aspectRatio;
 
 	void Update(float dt);
+	void UpdateSunPosition(float dt);
 	void Render();
 	void KeyInputCallback(int key, int scancode, int action, int mod);
 	void KeyInput();

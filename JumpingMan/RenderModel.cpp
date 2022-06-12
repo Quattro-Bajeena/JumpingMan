@@ -63,10 +63,8 @@ RenderModel::RenderModel(objl::Mesh mesh)
 
 
 
-void RenderModel::Render(glm::mat4 V, glm::mat4 P, glm::mat4 M, glm::vec3 cameraPos) {
+void RenderModel::Render(glm::mat4 V, glm::mat4 P, glm::mat4 M, glm::vec3 cameraPos, glm::vec3 lightPos1, glm::vec3 lightPos2) {
 
-	auto lightPos1 = glm::vec3(0,0, 0);
-	auto lightPos2 = glm::vec3(-20, 20, 0);
 
 	auto sp = this->shader;
 

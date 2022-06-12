@@ -81,9 +81,9 @@ void main(void){
 
 	vec3 lightDir1 = normalize(LightPosTS1 - FragPosTS);
 	vec3 lightDir2 = normalize(LightPosTS2 - FragPosTS);
-	float diff1 = max(dot(lightDir1, normal), 0.0);
-	float diff2 = max(dot(lightDir2, normal), 0.0);
-	vec3 diffuse = (diff1+diff2)/2 * color;
+	float diff1 = 3 * max(dot(lightDir1, normal), 0.0);
+	float diff2 = 0.5 * max(dot(lightDir2, normal), 0.0);
+	vec3 diffuse = (diff1 + diff2)/2 * color;
 
 	
 	vec3 reflectDir1 = reflect(-lightDir1, normal);
@@ -92,8 +92,8 @@ void main(void){
 	vec3 reflectDir2 = reflect(-lightDir2, normal);
 	vec3 halfwayDir2 = normalize(lightDir2 + viewDir);
 
-	float spec1 = pow(max(dot(normal, halfwayDir1), 0.0), 25.0);
-	float spec2 = pow(max(dot(normal, halfwayDir2), 0.0), 25.0);
+	float spec1 = 3 * pow(max(dot(normal, halfwayDir1), 0.0), 25.0);
+	float spec2 = 0.5 * pow(max(dot(normal, halfwayDir2), 0.0), 25.0);
 	vec3 specular = vec3(1.0) * (spec1+spec2);
 
 	FragColor = vec4(ambient + diffuse + specular, 1.0);

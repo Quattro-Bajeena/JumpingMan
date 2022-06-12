@@ -32,5 +32,5 @@ public:
 
 	RenderModel();
 	RenderModel(objl::Mesh mesh);
-	void Render(glm::mat4 V, glm::mat4 P, glm::mat4 M, glm::vec3 cameraPos);
+	void Render(glm::mat4 V, glm::mat4 P, glm::mat4 M, glm::vec3 cameraPos, glm::vec3 lightPos1, glm::vec3 lightPos2);
 };

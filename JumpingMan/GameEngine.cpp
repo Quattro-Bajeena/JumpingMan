@@ -199,7 +199,8 @@ void GameEngine::LoadModels()
 				newModel.heightMap = heightMaps.at(height_map);
 			}
 			
-			if (mesh.MeshMaterial.name == "textured" || mesh.MeshMaterial.name == "Skybox" || mesh.MeshMaterial.name == "droga") {
+			std::string mat_nam = mesh.MeshMaterial.name;
+			if (mat_nam == "textured" || mat_nam == "Skybox" || mat_nam == "droga" || mat_nam == "Sun") {
 				newModel.shader = shaders.at("textured");
 			}
 			else {
@@ -210,16 +211,18 @@ void GameEngine::LoadModels()
 			models[newModel.name] = newModel;
 
 			Collider collider(mesh);
-			if (newModel.name == "Skybox") {
+			if (newModel.name == "Skybox" || newModel.name == "Sun") {
 				collider = Collider();
 			}
 			
-
 			Object new_obj = Object(&models.at(newModel.name), collider);
-			//new_obj.position = positions.at(newModel.name);
-			objects.emplace_back(new_obj);
 
-			std::cout << "Loaded model: " << newModel.name << "\n";
+			if (newModel.name == "Sun") {
+				sun = new_obj;
+			}
+			else {
+				objects.emplace_back(new_obj);
+			}
 
 		}
 	}
@@ -231,9 +234,12 @@ void GameEngine::LoadShaders()
 	shaders["textured"] = new ShaderProgram("shaders/v_textured.glsl", nullptr, "shaders/f_textured.glsl");
 }
 
+
 void GameEngine::Update(float dt) {
 	MouseInput();
 	KeyInput();
+
+	UpdateSunPosition(dt);
 
 	angle_x += rotateObjectsX * dt;
 	angle_y += rotateObjectsY * dt;
@@ -241,6 +247,7 @@ void GameEngine::Update(float dt) {
 	for (auto& object : objects) {
 		object.SetRotation(angle_x, angle_y, 0);
 	}
+	
 
 	player.Move(moveForward, moveSide, dt);
 	player.Rotate(-mouseDelta.y, mouseDelta.x, deltaTime);
@@ -275,10 +282,46 @@ void GameEngine::Update(float dt) {
 	player.floorLevel = maxFloorLevel;
 
 	//std::cout << "FL: " << player.floorLevel << " POSY: " << player.position.y << " onground: " << player.onGround <<std::endl;
-	
 
-	
+}
 
+void GameEngine::UpdateSunPosition(float dt)
+{
+	auto corner1 = glm::vec3(-110, 100, 110);
+	auto corner2 = glm::vec3(110, 100, 110);
+	auto corner3 = glm::vec3(110, 100, -110);
+	auto corner4 = glm::vec3(-110, 100, -110);
+
+	sunTimer += dt;
+	if (sunTimer > sunRotationTime)
+		sunTimer = 0;
+
+	float edgeTime1 = sunRotationTime * 0.25;
+	float edgeTime2 = sunRotationTime * 0.5;
+	float edgeTime3 = sunRotationTime * 0.75;
+	float edgeTime4 = sunRotationTime;
+
+	if (sunTimer < edgeTime1) {
+		// first edge
+		float t = sunTimer / edgeTime1;
+
+		sun.position = glm::mix(corner1, corner2, t);
+	}
+	else if (sunTimer < edgeTime2) {
+		// second edge
+		float t = (sunTimer - edgeTime1) / (edgeTime2 - edgeTime1);
+		sun.position = glm::mix(corner2, corner3, t);;
+	}
+	else if (sunTimer < edgeTime3) {
+		// third edge
+		float t = (sunTimer - edgeTime2) / (edgeTime3 - edgeTime2);
+		sun.position = glm::mix(corner3, corner4, t);
+	}
+	else {
+		// fourth edge
+		float t = (sunTimer - edgeTime3) / (edgeTime4 - edgeTime3);
+		sun.position = glm::mix(corner4, corner1, t);
+	}
 }
 
 
@@ -292,8 +335,9 @@ void GameEngine::Render() {
 
 
 	for (auto& object : objects) {
-		object.Render(V, P, camera.position);
+		object.Render(V, P, camera.position, sun.position, lightPos);
 	}
+	sun.Render(V, P, camera.position, sun.position, lightPos);
 
 	glfwSwapBuffers(window);
 }
@@ -340,6 +384,10 @@ GameEngine::GameEngine() {
 
 	glfwSetTime(0);
 	lastTime = 0;
+	sunTimer = 0;
+	lightPos = glm::vec3(0, 0, 0);
+
+	sunRotationTime = 12;
 
 	//Player player = new Player();
 	//player.position = glm::vec3(0, 0, 0);
