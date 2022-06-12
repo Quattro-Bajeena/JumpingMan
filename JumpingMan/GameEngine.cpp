@@ -118,14 +118,14 @@ void GameEngine::LoadTextures()
 {
 	namespace fs = std::filesystem;
 	for (const auto& entry : fs::directory_iterator(fs::path("textures/color"))) {
-		if (entry.is_regular_file()) {
+		if (entry.is_regular_file() && entry.path().filename().extension().string() == ".png") {
 			textures[entry.path().filename().stem().string()] = ReadTexture(entry.path().string());
 			//std::cout << "Loaded texture: " << entry.path().string() << '\n';
 		}
 	}
 
 	for (const auto& entry : fs::directory_iterator(fs::path("textures/normal"))) {
-		if (entry.is_regular_file()) {
+		if (entry.is_regular_file() && entry.path().filename().extension().string() == ".png") {
 			normalMaps[entry.path().filename().stem().string()] = ReadTexture(entry.path().string());
 			//std::cout << "Loaded texture: " << entry.path().string() << '\n';
 		}
@@ -199,8 +199,10 @@ void GameEngine::LoadModels()
 				newModel.heightMap = heightMaps.at(height_map);
 			}
 			
+			std::vector<std::string> tex_materials{ "textured", "Skybox", "Sun"};
 			std::string mat_nam = mesh.MeshMaterial.name;
-			if (mat_nam == "textured" || mat_nam == "Skybox" || mat_nam == "droga" || mat_nam == "Sun") {
+
+			if (std::find(tex_materials.begin(), tex_materials.end(), mat_nam) != tex_materials.end()) {
 				newModel.shader = shaders.at("textured");
 			}
 			else {

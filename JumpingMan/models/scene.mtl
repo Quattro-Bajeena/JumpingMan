@@ -1,5 +1,5 @@
 # Blender MTL File: 'models.blend'
-# Material Count: 44
+# Material Count: 22
 
 newmtl AC
 Ns 225.000000
@@ -157,6 +157,18 @@ illum 2
 map_Bump F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\normal\\ACtexturenormal.png
 map_Kd F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\color\\ACtexturecolor.png
 
+newmtl Building2
+Ns 225.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Bump F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\normal\\1K-facade_3_normal.png
+map_Kd F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\color\\1K-facade_3_basecolor.png
+
 newmtl Skybox
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
@@ -194,20 +206,41 @@ map_Ks F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\te
 map_Ns F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\roughness\\1K-facade_2_roughness.png
 refl F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\metallic\\1K-facade_2_metallic.png
 
-newmtl building1.001
+newmtl building3
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
-Ks 0.581967 0.581967 0.581967
+Ks 0.500000 0.500000 0.500000
 Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 2
-map_Bump F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\normal\\1K-facade_2_normal.png
-map_Kd F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\color\\1K-facade_2_basecolor.png
-map_Ks F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\height\\1K-facade_2_height.png
-map_Ns F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\roughness\\1K-facade_2_roughness.png
-refl F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\metallic\\1K-facade_2_metallic.png
+map_Bump F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\normal\\1K-facade_1_normal.png
+map_Kd F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\color\\1K-facade_1_basecolor.png
+
+newmtl building4
+Ns 225.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Bump F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\normal\\Apartament1Normal.jpg
+map_Kd F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\color\\Apartament1Albedo.png
+
+newmtl building5
+Ns 225.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Bump F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\normal\\Apartament2Normal.png
+map_Kd F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\color\\Apartament3Albedo.png
 
 newmtl droga
 Ns 225.000000
@@ -218,7 +251,8 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 2
-map_Kd F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\color\\droga.jpg
+map_Bump F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\normal\\drogaNormal.png
+map_Kd F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\color\\droga.png
 
 newmtl gravel
 Ns 225.000000
@@ -229,305 +263,5 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 2
-map_Bump F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\normal\\gravel_path_Normal-ogl.png
-map_Kd F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\color\\gravel_path-albedo.png
-
-newmtl gravel.001
-Ns 225.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.500000 0.500000 0.500000
-Ke 0.000000 0.000000 0.000000
-Ni 1.450000
-d 1.000000
-illum 2
-map_Bump F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\normal\\gravel_path_Normal-ogl.png
-map_Kd F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\color\\gravel_path-albedo.png
-
-newmtl gravel.002
-Ns 225.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.500000 0.500000 0.500000
-Ke 0.000000 0.000000 0.000000
-Ni 1.450000
-d 1.000000
-illum 2
-map_Bump F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\normal\\gravel_path_Normal-ogl.png
-map_Kd F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\color\\gravel_path-albedo.png
-
-newmtl gravel.003
-Ns 225.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.500000 0.500000 0.500000
-Ke 0.000000 0.000000 0.000000
-Ni 1.450000
-d 1.000000
-illum 2
-map_Bump F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\normal\\gravel_path_Normal-ogl.png
-map_Kd F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\color\\gravel_path-albedo.png
-
-newmtl gravel.004
-Ns 225.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.500000 0.500000 0.500000
-Ke 0.000000 0.000000 0.000000
-Ni 1.450000
-d 1.000000
-illum 2
-map_Bump F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\normal\\gravel_path_Normal-ogl.png
-map_Kd F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\color\\gravel_path-albedo.png
-
-newmtl gravel.005
-Ns 225.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.500000 0.500000 0.500000
-Ke 0.000000 0.000000 0.000000
-Ni 1.450000
-d 1.000000
-illum 2
-map_Bump F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\normal\\gravel_path_Normal-ogl.png
-map_Kd F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\color\\gravel_path-albedo.png
-
-newmtl gravel.006
-Ns 225.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.500000 0.500000 0.500000
-Ke 0.000000 0.000000 0.000000
-Ni 1.450000
-d 1.000000
-illum 2
-map_Bump F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\normal\\gravel_path_Normal-ogl.png
-map_Kd F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\color\\gravel_path-albedo.png
-
-newmtl gravel.007
-Ns 225.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.500000 0.500000 0.500000
-Ke 0.000000 0.000000 0.000000
-Ni 1.450000
-d 1.000000
-illum 2
-map_Bump F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\normal\\gravel_path_Normal-ogl.png
-map_Kd F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\color\\gravel_path-albedo.png
-
-newmtl gravel.008
-Ns 225.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.500000 0.500000 0.500000
-Ke 0.000000 0.000000 0.000000
-Ni 1.450000
-d 1.000000
-illum 2
-map_Bump F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\normal\\gravel_path_Normal-ogl.png
-map_Kd F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\color\\gravel_path-albedo.png
-
-newmtl gravel.009
-Ns 225.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.500000 0.500000 0.500000
-Ke 0.000000 0.000000 0.000000
-Ni 1.450000
-d 1.000000
-illum 2
-map_Bump F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\normal\\gravel_path_Normal-ogl.png
-map_Kd F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\color\\gravel_path-albedo.png
-
-newmtl gravel.010
-Ns 225.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.500000 0.500000 0.500000
-Ke 0.000000 0.000000 0.000000
-Ni 1.450000
-d 1.000000
-illum 2
-map_Bump F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\normal\\gravel_path_Normal-ogl.png
-map_Kd F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\color\\gravel_path-albedo.png
-
-newmtl gravel.011
-Ns 225.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.500000 0.500000 0.500000
-Ke 0.000000 0.000000 0.000000
-Ni 1.450000
-d 1.000000
-illum 2
-map_Bump F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\normal\\gravel_path_Normal-ogl.png
-map_Kd F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\color\\gravel_path-albedo.png
-
-newmtl gravel.012
-Ns 225.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.500000 0.500000 0.500000
-Ke 0.000000 0.000000 0.000000
-Ni 1.450000
-d 1.000000
-illum 2
-map_Bump F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\normal\\gravel_path_Normal-ogl.png
-map_Kd F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\color\\gravel_path-albedo.png
-
-newmtl gravel.013
-Ns 225.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.500000 0.500000 0.500000
-Ke 0.000000 0.000000 0.000000
-Ni 1.450000
-d 1.000000
-illum 2
-map_Bump F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\normal\\gravel_path_Normal-ogl.png
-map_Kd F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\color\\gravel_path-albedo.png
-
-newmtl gravel.014
-Ns 225.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.500000 0.500000 0.500000
-Ke 0.000000 0.000000 0.000000
-Ni 1.450000
-d 1.000000
-illum 2
-map_Bump F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\normal\\gravel_path_Normal-ogl.png
-map_Kd F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\color\\gravel_path-albedo.png
-
-newmtl gravel.015
-Ns 225.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.500000 0.500000 0.500000
-Ke 0.000000 0.000000 0.000000
-Ni 1.450000
-d 1.000000
-illum 2
-map_Bump F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\normal\\gravel_path_Normal-ogl.png
-map_Kd F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\color\\gravel_path-albedo.png
-
-newmtl gravel.016
-Ns 225.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.500000 0.500000 0.500000
-Ke 0.000000 0.000000 0.000000
-Ni 1.450000
-d 1.000000
-illum 2
-map_Bump F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\normal\\gravel_path_Normal-ogl.png
-map_Kd F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\color\\gravel_path-albedo.png
-
-newmtl gravel.017
-Ns 225.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.500000 0.500000 0.500000
-Ke 0.000000 0.000000 0.000000
-Ni 1.450000
-d 1.000000
-illum 2
-map_Bump F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\normal\\gravel_path_Normal-ogl.png
-map_Kd F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\color\\gravel_path-albedo.png
-
-newmtl gravel.018
-Ns 225.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.500000 0.500000 0.500000
-Ke 0.000000 0.000000 0.000000
-Ni 1.450000
-d 1.000000
-illum 2
-map_Bump F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\normal\\gravel_path_Normal-ogl.png
-map_Kd F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\color\\gravel_path-albedo.png
-
-newmtl gravel.019
-Ns 225.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.500000 0.500000 0.500000
-Ke 0.000000 0.000000 0.000000
-Ni 1.450000
-d 1.000000
-illum 2
-map_Bump F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\normal\\gravel_path_Normal-ogl.png
-map_Kd F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\color\\gravel_path-albedo.png
-
-newmtl gravel.020
-Ns 225.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.500000 0.500000 0.500000
-Ke 0.000000 0.000000 0.000000
-Ni 1.450000
-d 1.000000
-illum 2
-map_Bump F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\normal\\gravel_path_Normal-ogl.png
-map_Kd F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\color\\gravel_path-albedo.png
-
-newmtl gravel.021
-Ns 225.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.500000 0.500000 0.500000
-Ke 0.000000 0.000000 0.000000
-Ni 1.450000
-d 1.000000
-illum 2
-map_Bump F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\normal\\gravel_path_Normal-ogl.png
-map_Kd F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\color\\gravel_path-albedo.png
-
-newmtl gravel.022
-Ns 225.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.500000 0.500000 0.500000
-Ke 0.000000 0.000000 0.000000
-Ni 1.450000
-d 1.000000
-illum 2
-map_Bump F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\normal\\gravel_path_Normal-ogl.png
-map_Kd F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\color\\gravel_path-albedo.png
-
-newmtl gravel.023
-Ns 225.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.500000 0.500000 0.500000
-Ke 0.000000 0.000000 0.000000
-Ni 1.450000
-d 1.000000
-illum 2
-map_Bump F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\normal\\gravel_path_Normal-ogl.png
-map_Kd F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\color\\gravel_path-albedo.png
-
-newmtl gravel.024
-Ns 225.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.500000 0.500000 0.500000
-Ke 0.000000 0.000000 0.000000
-Ni 1.450000
-d 1.000000
-illum 2
-map_Bump F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\normal\\gravel_path_Normal-ogl.png
-map_Kd F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\color\\gravel_path-albedo.png
-
-newmtl gravel.025
-Ns 225.000000
-Ka 1.000000 1.000000 1.000000
-Kd 0.800000 0.800000 0.800000
-Ks 0.500000 0.500000 0.500000
-Ke 0.000000 0.000000 0.000000
-Ni 1.450000
-d 1.000000
-illum 2
-map_Bump F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\normal\\gravel_path_Normal-ogl.png
-map_Kd F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\color\\gravel_path-albedo.png
+map_Bump F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\normal\\Gravel06_1K_Normal.png
+map_Kd F:\\Programowanie\\Studia\\GrafikaKomputerowa\\JumpingMan\\JumpingMan\\textures\\color\\Gravel06_1K_BaseColor.png

@@ -92,7 +92,7 @@ void main(void){
 	vec3 reflectDir2 = reflect(-lightDir2, normal);
 	vec3 halfwayDir2 = normalize(lightDir2 + viewDir);
 
-	float spec1 = 3 * pow(max(dot(normal, halfwayDir1), 0.0), 25.0);
+	float spec1 = 1 * pow(max(dot(normal, halfwayDir1), 0.0), 25.0);
 	float spec2 = 0.5 * pow(max(dot(normal, halfwayDir2), 0.0), 25.0);
 	vec3 specular = vec3(1.0) * (spec1+spec2);
 
