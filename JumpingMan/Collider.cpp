@@ -3,6 +3,7 @@
 
 Collider::Collider(objl::Mesh mesh)
 {
+	collision = true;
 	maxX = maxY = maxZ = -1 * std::numeric_limits<float>::infinity();
 	minX = minY = minZ = std::numeric_limits<float>::infinity();
 

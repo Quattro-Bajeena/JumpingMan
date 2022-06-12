@@ -215,6 +215,7 @@ void GameEngine::LoadModels()
 			Collider collider(mesh);
 			if (newModel.name == "Skybox" || newModel.name == "Sun") {
 				collider = Collider();
+				collider.collision = false;
 			}
 			
 			Object new_obj = Object(&models.at(newModel.name), collider);
@@ -259,6 +260,9 @@ void GameEngine::Update(float dt) {
 
 	// COllision detection
 	for (auto& object : objects) {
+		if (object.collider.collision == false) {
+			continue;
+		}
 		if (object.collider.PointInside(player.position + player.direction)) {
 			player.position = player.prevPosition;
 			player.speed = 0;
@@ -269,6 +273,9 @@ void GameEngine::Update(float dt) {
 
 	float maxFloorLevel = -1000;
 	for (auto& object : objects) {
+		if (object.collider.collision == false) {
+			continue;
+		}
 		if (object.collider.PointInSquare(player.position)) {
 
 			float currentObjectFloorLevel = object.collider.GetFloorLevel();

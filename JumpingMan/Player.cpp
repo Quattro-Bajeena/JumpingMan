@@ -93,6 +93,8 @@ void Player::Jump() {
 }
 void Player::Die() {
 	position = glm::vec3(0, 0, 0);
+	onGround = false;
+	gravity = 0.01;
 	
 	//std::cout << "Died.  FL: " << floorLevel << " POSY: " << position.y << std::endl;
 }

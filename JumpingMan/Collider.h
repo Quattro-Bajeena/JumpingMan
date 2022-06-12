@@ -5,6 +5,7 @@ class Collider
 {
 public:
 	float minX, maxX, minY, maxY, minZ, maxZ;
+	bool collision;
 
 	Collider(objl::Mesh mesh);
 	Collider();
